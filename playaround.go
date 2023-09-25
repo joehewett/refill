@@ -4,6 +4,8 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"os"
+
 	"github.com/invopop/jsonschema"
 	"github.com/sashabaranov/go-openai"
 )
@@ -27,13 +29,16 @@ func main() {
 
 }
 
-func decodeData(inputData string, dataStructure any) {
+func decodeData(inputData string, dataStructure any) error {
 	// Create JSON schema from struct
 	jsonFormat := jsonschema.Reflect(dataStructure)
 	// Get JSON Schema in string format
 	jsonFormatInString, err := jsonFormat.MarshalJSON()
+	if err != nil {
+		return err
+	}
 
-	client := openai.NewClient("{FILL ME IN WITH .ENV}")
+	client := openai.NewClient(os.Getenv("OPEN_API_KEY"))
 	response, err := client.CreateChatCompletion(
 		context.Background(),
 		openai.ChatCompletionRequest{
@@ -71,4 +76,6 @@ func decodeData(inputData string, dataStructure any) {
 		// PANIK
 		panic(err)
 	}
+
+	return nil
 }
