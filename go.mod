@@ -1,4 +1,4 @@
-module go-test
+module github.com/joehewett/refill
 
 go 1.20
 
