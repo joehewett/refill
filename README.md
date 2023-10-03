@@ -21,8 +21,8 @@ import (
 type Person struct {
 	Age  int
 	Name string
-    Address string
-    Occupation string
+	Address string
+	Occupation string
 }
 
 func main() {
@@ -47,4 +47,3 @@ This project is experimental. I have no idea if it will work for your use case. 
 # License
 
 [MIT](LICENSE)
-```
