@@ -1,8 +1,6 @@
 # refill
 
-Rehydrate Go structs from arbitrary text-based data using language models.
-
-This is a work in progress, and is not yet usable.
+Rehydrate JSON schemas from arbitrary text-based data using language models.
 
 # Usage
 
@@ -10,39 +8,44 @@ This is a work in progress, and is not yet usable.
 $ go get github.com/joehewett/refill
 ```
 
-```go
-package main
+```sh
+$ refill -json structure.json -dir data -verbose
+```
 
-import (
-	"fmt"
-	"github.com/joehewett/refill"
-)
+# Example
 
-type Person struct {
-	Age  int
-	Name string
-	Address string
-	Occupation string
-}
+Given this empty JSON schema containing PII:
 
-func main() {
-	text := "My name is Joe, I am 23 years old and by day i'm an engineer."
-	person := Person{}
-	refill.Refill(&person, text)
-
-	fmt.Printf("%+v", person)
+```json
+{
+  "name": "",
+  "email": "",
+  "phone": "",
+  "address": "",
 }
 ```
 
-Output:
-
+And this text file:
 ```
-{Age:23 Name:Joe Address: Occupation:engineer}
+Hi Steve, it's Joe from the office. I'm calling to let you know that your order is ready for pickup. Please come by the office at your earliest convenience to pick it up. Thanks!
+
+J. Hewett
+Sales Manager
+
+joe@company.net
+(555) 555-5555
 ```
 
-# Disclaimer
+The `refill` command will produce this output:
 
-This project is experimental. I have no idea if it will work for your use case. I have no idea if it will work for my use case.
+```json
+{
+  "name": "Joe Hewett",
+  "email": "joe@company.net",
+  "phone": "(555) 555-5555",
+  "address": "",
+}
+```
 
 # License
 

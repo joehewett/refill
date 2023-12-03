@@ -10,27 +10,55 @@ import (
 
 var (
 	systemPrompt = `
-		You are a parser unstructured text data. I need you to return raw JSON in your answers.
-		This JSON will need to be in the format described in the message
+		You are a parser of unstructured text data. Your task is to return JSON in the format specified, 
+		where each JSON value is filled in using information provided in the data.
+		If the data does not contain the information required, return an empty string for that value.
 	`
-	userPrompt = `
-		I'd like to format the following data in the above JSON string. It has to be returned like this as it's going to be parsed by code.
-		Ths data is:
+	jsonTagPrompt = `
+		[JSON Structure]
 	`
-	openAIKey = os.Getenv("OPEN_AI_KEY")
-	model = openai.GPT4
+
+	dataTagPrompt = `
+		[Data to fill JSON structure with]
+	`
+
+	filledJSONTagPrompt = `
+		[Filled JSON structure]
+	`
+	openAIKey = os.Getenv("OPENAI_API_KEY")
+	model     = openai.GPT4
 )
 
-func requestFill(format string, inputData string) (string, error) {
+func requestFill(jsonStructure string, inputData string) (string, error) {
 	var messages = []openai.ChatCompletionMessage{
 		{
-			Role: openai.ChatMessageRoleSystem,
+			Role:    openai.ChatMessageRoleSystem,
 			Content: systemPrompt,
 		},
 		{
-			Role: openai.ChatMessageRoleUser,
-			Content: fmt.Sprintf(`%s\n%s\n%s`, format, userPrompt, inputData),
+			Role:    openai.ChatMessageRoleSystem,
+			Content: fmt.Sprintf(`%s`, jsonTagPrompt),
 		},
+		{
+			Role:    openai.ChatMessageRoleSystem,
+			Content: fmt.Sprintf(`%s`, jsonStructure),
+		},
+		{
+			Role:    openai.ChatMessageRoleSystem,
+			Content: fmt.Sprintf(`%s`, dataTagPrompt),
+		},
+		{
+			Role:    openai.ChatMessageRoleSystem,
+			Content: fmt.Sprintf(`%s`, inputData),
+		},
+		{
+			Role:    openai.ChatMessageRoleSystem,
+			Content: fmt.Sprintf(`%s`, filledJSONTagPrompt),
+		},
+	}
+
+	if openAIKey == "" {
+		return "", fmt.Errorf("OPENAI_API_KEY is not set")
 	}
 
 	client := openai.NewClient(openAIKey)
@@ -38,7 +66,7 @@ func requestFill(format string, inputData string) (string, error) {
 	response, err := client.CreateChatCompletion(
 		context.Background(),
 		openai.ChatCompletionRequest{
-			Model: model,
+			Model:    model,
 			Messages: messages,
 		},
 	)

@@ -1,0 +1,23 @@
+{
+  "firstName": "",
+  "lastName": "",
+  "age": "",
+  "address": {
+    "streetAddress": "",
+    "city": "",
+    "state": "",
+    "postalCode": ""
+  },
+  "phoneNumber": [
+    {
+      "type": "",
+      "number": ""
+    },
+    {
+      "type": "",
+      "number": ""
+    }
+  ],
+  "email": "",
+  "isActive": ""
+}
