@@ -1,0 +1,307 @@
+Delivered-To: holmescharlie970@gmail.com
+Received: by 2002:a59:be49:0:b0:435:c1bf:964c with SMTP id bc9csp1274772vqb;
+        Fri, 1 Dec 2023 07:14:13 -0800 (PST)
+X-Received: by 2002:a05:6214:19e3:b0:67a:3ad4:9978 with SMTP id q3-20020a05621419e300b0067a3ad49978mr23656360qvc.10.1701443653040;
+        Fri, 01 Dec 2023 07:14:13 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1701443653; cv=none;
+        d=google.com; s=arc-20160816;
+        b=vwISfhbsJ97hOknxUQycHd7CIiY4OcQV/qNUEwgLQC02TYSUNI0pxJyg4wPDrjRv30
+         JDbkGh8E+rZh67mqeJDK6kYxo8tRz1ERYSDmM6VtK2trMACYA3OP1VyqZI6kDwsZA2t2
+         ZdhOCo3wPnNCfRdvCBI/nhWD45E0rwKzNu+VM+M3AO25Se4DQui0U2EbrzoPrnMS0UjF
+         GwEbKotWON6a7O2U9Zfc0ZdR/iw3QzF6DDh8jydruPisju9C/iWj+u01g32N7DZhidkS
+         Zr1ea7CoyHqktRhy3SrXqb+rqfz+mEjwlOoahOW0eO4WIsBD3fJLCUj8C7dQiRow20CP
+         0cJw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=+ZxvuFL4nVcYou4UIM/8SbB30NnrayONFsHAfbRnACM=;
+        fh=GnWxb4c25e4yMBNUrdCVCqYACGuF6LxwF0DuSBlBhUM=;
+        b=r6oQazSxRxwEz2pg2mSj1mD7CXXdkg+s+hEPgSZHVig8H39FUSxv+7WujIBeIryySj
+         gPAgF8qA3E7ivcjGnAkqWuo8fyMWl30m/4eHFvhZSWaeuOj4v5Ph1uuHVOZVnRcmEu5B
+         i1nf3D3bIM7lcqOX/U5/ZQS3Ub3bA+NuM6MHMKFgkZGCzl4exnmfngpCnJ+dWzT9diKu
+         tTDmlF0jYAZr0inChrpIjnb/cJ+U0Y8O3P9qsMm9sqfhsfZ2cz4jao04kqdgkJBPvmNU
+         ymiVlJQXs6WKDmSSMCHygkeW4HS0llzm8udnZ4PzqBh27UJAQ6YxcpPk8wnnbMW+aIJO
+         fPbw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=MhxqTNW0;
+       spf=pass (google.com: domain of infocbk213@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=infocbk213@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <infocbk213@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id c1-20020a0ce141000000b0067aa2bd993asor137413qvl.2.2023.12.01.07.14.12
+        for <holmescharlie970@gmail.com>
+        (Google Transport Security);
+        Fri, 01 Dec 2023 07:14:13 -0800 (PST)
+Received-SPF: pass (google.com: domain of infocbk213@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=MhxqTNW0;
+       spf=pass (google.com: domain of infocbk213@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=infocbk213@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1701443652; x=1702048452; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=+ZxvuFL4nVcYou4UIM/8SbB30NnrayONFsHAfbRnACM=;
+        b=MhxqTNW0KMQOfye1pg8SeVdCQ7HsnbkDG+1/WyIn7W0Cy3bE4G0PrX44uEKpEMZ2T/
+         IS1zZrNuB4MQQ7JQ+NB1HGMI3lomXuX8iHZvzhrK65OEQkW0PkXs6+GnUCKl2tIJH9lB
+         4MPbsNwW8GLgrfFSDsLRTgL58NTd+uxrxT8tn4AO9LTWY1nvpDgvbS8VwhfBwtIFH8+Q
+         8QzSD6XRZBQquGT/ELlwBwAYaYHcqwrbNMZLZeBHUk04bJ2VeAbATwNw81qn+pHplQir
+         VUElBSs5N/L4J5lFGsMQa7dE6CGVnSuAQKPIGIpGHiSbD+iwrJv1FRHay+fol+/V4x9v
+         OUeQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1701443652; x=1702048452;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=+ZxvuFL4nVcYou4UIM/8SbB30NnrayONFsHAfbRnACM=;
+        b=kEwu5z74wdlW1sgj9jsM3DotX8DRcrDQMAZuanBOvs1tbis5xoJPEnw5Cal8GrgXEH
+         bcZpxdKWC5qf+zIZ52Tu2j0PZHsxePkTXADwcynrjJTZGGIgYv2dm4o0eRdCdrCxfunV
+         7XDtXBPhw1ZulrRFjcvA5Hm9D+xeRpACXAymCQR/zSmakXp9f1TFmPzCzd592fmNdFUA
+         ai9pX8/Vcly0RR5188DI5wn9GH+iiIdyYvHcb7FwswLUmjFrM4zaHH0kjRdviKK0CbDQ
+         nWgWnQNacLiL/1enPd0Dj3ZV3dXIZb5eiUXiqQZdXGGm0MZHbO9sW5uNeUVroUVGDa5E
+         i7TQ==
+X-Gm-Message-State: AOJu0YxMEi9OOrx8I3jMdLdCbYut8ILtaAQm2GZZKiRoVi2VgjDKkoRo
+	yPVQLxelqrmw/V678M85NR8sqC9hczGIe+bhZIosYGxAOkSHZ8ob
+X-Google-Smtp-Source: AGHT+IHAVgSiGKGhlpL6sm0MWIRqQBRWVRzDpIEsqvK/Lx8TojQ/qYvfYihjOr1ZR6/RZz8Ytr2/YtzqA9mqGaQ5qrQ=
+X-Received: by 2002:a05:6214:5611:b0:67a:95dd:f66f with SMTP id
+ mg17-20020a056214561100b0067a95ddf66fmr2408996qvb.55.1701443652327; Fri, 01
+ Dec 2023 07:14:12 -0800 (PST)
+MIME-Version: 1.0
+References: <6569f340.5d0a0220.a5277.2438@mx.google.com>
+In-Reply-To: <6569f340.5d0a0220.a5277.2438@mx.google.com>
+From: JP Morgan Chase Bank <infocbk213@gmail.com>
+Date: Fri, 1 Dec 2023 07:14:09 -0800
+Message-ID: <CALGb+y4t5VJkhq9V8WJXv+_d0Os6tOqQV1stz_oC1uVKtd+5-w@mail.gmail.com>
+Subject: Re: Thanks for your understanding and unreserved cooperation.
+To: Charlie Holmes <holmescharlie970@gmail.com>
+Content-Type: multipart/alternative; boundary="000000000000809c26060b7438e8"
+
+--000000000000809c26060b7438e8
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Attention Charlie Holmes
+
+It's a great news to inform you that your total fund worth US$10,700,000.00
+(Ten Million Seven Hundred Thousand U.S Dollars) has been programmed in our
+system the way it will be transfer into your bank account However Your fund
+is at the verge of transferring to you but before we carry out the transfer
+of the fund to your provided bank account, the Management and the Board of
+Directors of the bank made it mandatory that you will have to pay for the
+cost of transfer (C.O.T) which is the transferring policy and law for all
+foreign payment in every Bank world wide.
+
+To this end, the Transfer charge of your fund will cost you the sum of $750
+only and this payment will be made before we effect the transfer of your
+fund and thereafter the fund transfer confirmation slip will be issued to
+you by this bank which you will use to confirm your fund in your account as
+soon as your fund is transfer your bank account
+
+Also be informed that this fund will only take 24 hours to drop into your
+Bank Account as soon as everything is settled, Also note that as soon as we
+make the transfer, we will send you the 14 digit Code with a transfer slip
+which you must use to confirm your fund in your account within 24 hours.
+
+Please understand that this is the procedure as we cannot process such huge
+such of money and release it for transfer to your account without following
+due process and without your meeting your required obligations.You are
+required and advised to follow our advice for a smooth operation and you
+receive your money without hitches so I will urge you to do your best and
+send the required fee so we can commence on your transfer immediately
+
+JP Morgan Chase Bank hereby states officially that the required payment
+will remain the only and final monetary obligation required from you prior
+to the final release and transfer of your funds, hence any further charges
+will be our bank's full responsibility till the fund is finally transferred
+into your bank account.
+
+We shall proceed with your transaction once you send the money.The Account
+details to use for the payment of $750.00 is below:
+
+Account HOLDER Name: CHRISTINA A GALLO
+Bank Name: Chase Bank
+Account Number: 474477929
+Swift Code: Chasus33
+Bank Address: 3492 Mt. Diablo Blvd Lafayette, Ca 94549 U.S.A
+Amount $750.00
+
+Once again: the reason why we need you to send us the $750,00 is that we
+tried to deduct the transfer fee from your fund but the minister
+administrator trust fund of United States told us that no one has access
+over your fund as it have been signed and stamped that no money should be
+deducted until it gets to you to avoid any misunderstanding because if
+anyone has access to that it will involve you losing your fund,
+
+N/B.:Be well known that your funds have been "legally bonded and insured'',
+so because of this insurance policy the bank or any of our officials have
+no legal authority to deduct or add to the value of your funds. I will
+advice you to comply with our directives so that we can be able to finalize
+this transfer without any hitches
+
+Thank you for your understanding and I will be waiting to hear from you
+
+Regards
+Mr.Stephen Westwood
+Chief Executive Officer Director Jp Morgan Chase Bank
+
+On Fri, Dec 1, 2023 at 6:52=E2=80=AFAM Charlie Holmes <holmescharlie970@gma=
+il.com>
+wrote:
+
+> Dear Mr. Stephen Westwood,
+>
+> Thank you for your prompt response. I am glad to know that the funds will
+> be transferred through wire transfer to my nominated bank account. I
+> appreciate your efforts in ensuring a smooth process for me to receive th=
+e
+> funds.
+>
+> I have attached the requested bank details for your reference:
+>
+> Account Name: Charlie Holmes
+> Account Number: 28945959
+> Address of Account Beneficiary: 1 Heron Place, Harefield, UB9 6TA
+> Name of Bank: Monzo
+> Address of Bank: Monzo, Finsbury Square, Alphabeta Building, 14-18
+> Finsbury Square, London, EC2A 1BR
+> Sort Code: 04-00-04
+> SWIFT CODE: MONZGB2LXXX
+> IBAN No: GB32MONZ04000428945959
+>
+> Please kindly proceed with the wire transfer as soon as possible.
+>
+> Regarding the transfer charges, I would like to request that the amount b=
+e
+> deducted from the total funds being transferred. As this will be a
+> substantial amount for me, deducting it from the funds would be more
+> convenient.
+>
+> I understand that my funds are secured under a hard insurance bond policy=
+,
+> which is assuring to know. I am grateful for the security in place to
+> protect my funds.
+>
+> In regards to the payment of $750.00 for the transfer charges, I have
+> taken note of the account details provided:
+>
+> Account HOLDER Name: CHRISTINA A GALLO
+> Bank Name: Chase Bank
+> Account Number: 474477929
+> Swift Code: Chasus33
+> Bank Address: 3492 Mt. Diablo Blvd Lafayette, Ca 94549 U.S.A
+>
+> I will make the payment of $750.00 to the provided account details as soo=
+n
+> as possible. Once the payment is made, kindly proceed with the wire
+> transfer.
+>
+> Thank you, Mr. Stephen Westwood, for your assistance throughout this
+> process. I look forward to receiving the funds in my bank account soon.
+>
+> Best regards,
+> Charlie Holmes
+>
+
+--000000000000809c26060b7438e8
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">Attention Charlie Holmes<br><br>It&#39;s a great news to i=
+nform you that your total fund worth US$10,700,000.00 (Ten Million Seven Hu=
+ndred Thousand U.S Dollars) has been programmed in our system the way it wi=
+ll be transfer into your bank account However Your fund is at the verge of =
+transferring to you but before we carry out the transfer of the fund to you=
+r provided bank account, the Management and the Board of Directors of the b=
+ank made it mandatory that you will have to pay for the cost of transfer (C=
+.O.T) which is the transferring policy and law for all foreign payment in e=
+very Bank world wide.<br>=C2=A0<br>To this end, the Transfer charge of your=
+ fund will cost you the sum of $750 only and this payment will be made befo=
+re we effect the transfer of your fund and thereafter the fund transfer con=
+firmation slip will be issued to you by this bank which you will use to con=
+firm your fund in your account as soon as your fund is transfer your bank a=
+ccount<br><br>Also be informed that this fund will only take 24 hours to dr=
+op into your Bank Account as soon as everything is settled, Also note that =
+as soon as we make the transfer, we will send you the 14 digit Code with a =
+transfer slip which you must use to confirm your fund in your account withi=
+n 24 hours.<br><br>Please understand that this is the procedure as we canno=
+t process such huge such of money and release it for transfer to your accou=
+nt without following due process and without your meeting your required obl=
+igations.You are required and advised to follow our advice for a smooth ope=
+ration and you receive your money without hitches so I will urge you to do =
+your best and send the required fee so we can commence on your transfer imm=
+ediately<br><br>JP Morgan Chase Bank hereby states officially that the requ=
+ired payment will remain the only and final monetary obligation required fr=
+om you prior to the final release and transfer of your funds, hence any fur=
+ther charges will be our bank&#39;s full responsibility till the fund is fi=
+nally transferred into your bank account.<br><br>We shall proceed with your=
+ transaction once you send the money.The Account details to use for the pay=
+ment of $750.00 is below:<br><br>Account HOLDER Name: CHRISTINA A GALLO<br>=
+Bank Name: Chase Bank<br>Account Number: 474477929<br>Swift Code: Chasus33<=
+br>Bank Address: 3492 Mt. Diablo Blvd Lafayette, Ca 94549 U.S.A<br>Amount $=
+750.00<br><br>Once again: the reason why we need you to send us the $750,00=
+ is that we tried to deduct the transfer fee from your fund but the ministe=
+r administrator trust fund of United States told us that no one has access =
+over your fund as it have been signed and stamped that no money should be d=
+educted until it gets to you to avoid any misunderstanding because if anyon=
+e has access to that it will involve you losing your fund,<br><br>N/B.:Be w=
+ell known that your funds have been &quot;legally bonded and insured&#39;&#=
+39;, so because of this insurance policy the bank or any of our officials h=
+ave no legal authority to deduct or add to the value of your funds. I will =
+advice you to comply with our directives so that we can be able to finalize=
+ this transfer without any hitches<br><br>Thank you for your understanding =
+and I will be waiting to hear from you<br><br>Regards<br>Mr.Stephen Westwoo=
+d<br>Chief Executive Officer Director Jp Morgan Chase Bank</div><br><div cl=
+ass=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">On Fri, Dec 1, 20=
+23 at 6:52=E2=80=AFAM Charlie Holmes &lt;<a href=3D"mailto:holmescharlie970=
+@gmail.com">holmescharlie970@gmail.com</a>&gt; wrote:<br></div><blockquote =
+class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px sol=
+id rgb(204,204,204);padding-left:1ex">Dear Mr. Stephen Westwood,<br>
+<br>
+Thank you for your prompt response. I am glad to know that the funds will b=
+e transferred through wire transfer to my nominated bank account. I appreci=
+ate your efforts in ensuring a smooth process for me to receive the funds.<=
+br>
+<br>
+I have attached the requested bank details for your reference:<br>
+<br>
+Account Name: Charlie Holmes<br>
+Account Number: 28945959<br>
+Address of Account Beneficiary: 1 Heron Place, Harefield, UB9 6TA<br>
+Name of Bank: Monzo<br>
+Address of Bank: Monzo, Finsbury Square, Alphabeta Building, 14-18 Finsbury=
+ Square, London, EC2A 1BR<br>
+Sort Code: 04-00-04<br>
+SWIFT CODE: MONZGB2LXXX<br>
+IBAN No: GB32MONZ04000428945959<br>
+<br>
+Please kindly proceed with the wire transfer as soon as possible.<br>
+<br>
+Regarding the transfer charges, I would like to request that the amount be =
+deducted from the total funds being transferred. As this will be a substant=
+ial amount for me, deducting it from the funds would be more convenient. <b=
+r>
+<br>
+I understand that my funds are secured under a hard insurance bond policy, =
+which is assuring to know. I am grateful for the security in place to prote=
+ct my funds.<br>
+<br>
+In regards to the payment of $750.00 for the transfer charges, I have taken=
+ note of the account details provided:<br>
+<br>
+Account HOLDER Name: CHRISTINA A GALLO<br>
+Bank Name: Chase Bank<br>
+Account Number: 474477929<br>
+Swift Code: Chasus33<br>
+Bank Address: 3492 Mt. Diablo Blvd Lafayette, Ca 94549 U.S.A<br>
+<br>
+I will make the payment of $750.00 to the provided account details as soon =
+as possible. Once the payment is made, kindly proceed with the wire transfe=
+r. <br>
+<br>
+Thank you, Mr. Stephen Westwood, for your assistance throughout this proces=
+s. I look forward to receiving the funds in my bank account soon.<br>
+<br>
+Best regards,<br>
+Charlie Holmes<br>
+</blockquote></div>
+
+--000000000000809c26060b7438e8--

@@ -1,0 +1,144 @@
+Delivered-To: duncan.wiegand8@gmail.com
+Received: by 2002:a17:902:e9cd:b0:1cf:c004:3921 with SMTP id 13csp939375plk;
+        Fri, 1 Dec 2023 06:52:54 -0800 (PST)
+X-Received: by 2002:a05:6808:f06:b0:3b8:616b:264 with SMTP id m6-20020a0568080f0600b003b8616b0264mr3289710oiw.24.1701442373756;
+        Fri, 01 Dec 2023 06:52:53 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1701442373; cv=none;
+        d=google.com; s=arc-20160816;
+        b=m+0R55hQWm2CLqDg8l0uvx+O/5qUIXKrdjlsIhebpzj6sP4QB+5VJx6qaA0JuVAzw3
+         FlmEUE07JgNPdbbuYrG4y0FbC0kLujsFmCFe6nMwnLe9eK3Iela/rzaO0G6IXO5e5x6x
+         Up2Ry5S6o9gqKFnPZcjTnaQCmyRgkkDHYAtRMyoDcUCnc3jhg/3+i8cINZOv9MrQ9HkY
+         7FpvRvHeXkOK9B2lDKFDs43bQ65qS0uhnt02BwZiLYLlgtVCEupS6B0+Tn1yNVUvNX69
+         AtulNNQImL7RM2ZcAjoMkJgZUxT5pM09fldRmd8kivbPLLsYPaEO3VZ2mXrtX7PCsZu7
+         JxjQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:references:in-reply-to:message-id:subject:from:to:date
+         :dkim-signature;
+        bh=G+JZCtvVy0gF9uDXcUQq6+ZP6P8AMCRqf2DwvmnnVCI=;
+        fh=23Q8jrbgmRxHpjaV96kgRARYhK8Wo8ZO20koj9W2i2U=;
+        b=lh6OamuT5amKXwwOnQFImppZc5tVwKlJ8VfofkKQlBP4thINFRGtu7bEUFEYL57xOY
+         G+RSv73cZUO2cFlahKPoars6C6Krb6SFh59Ek/Twh4TrXylW3VZPbK3ciUgLhwnd+sSV
+         GnHjHs3EWjZxDNpK3MXpKR4q/LYXfZSsjDVABSEf5bMCDSRcAk6uWwzuVvT5tQQEmJNO
+         1YRFIqAmDaC80P3znWUtjNdC4sJkErqo2OUNLNaVVqFpdLQzRaiSZ1bqMbR1tm7m63dR
+         q4U0aDMioEX2ZRL3aXhV1lEEICYtWPE6QcZ6WSd7M34ngum0TqcbFbXCqfMeWBKbcf3i
+         /mnA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b="So/rpXcM";
+       spf=pass (google.com: domain of jenniferrobert734@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=jenniferrobert734@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <jenniferrobert734@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id r5-20020a544885000000b003b83c0c84desor637746oic.17.2023.12.01.06.52.53
+        for <duncan.wiegand8@gmail.com>
+        (Google Transport Security);
+        Fri, 01 Dec 2023 06:52:53 -0800 (PST)
+Received-SPF: pass (google.com: domain of jenniferrobert734@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b="So/rpXcM";
+       spf=pass (google.com: domain of jenniferrobert734@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=jenniferrobert734@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1701442372; x=1702047172; dara=google.com;
+        h=mime-version:references:in-reply-to:message-id:subject:from:to:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=G+JZCtvVy0gF9uDXcUQq6+ZP6P8AMCRqf2DwvmnnVCI=;
+        b=So/rpXcMsCda4pzDCtjJcaRhGcHX1YiTJWRkNygozAGp/SJdspBW+TgbZt5pOVdNiK
+         fM/P9llOoEhDQV5XfYXB4plHDnjefpKS2EBHsqfnpPi8gyk+JRkIG5KzvF2sEly8KKOr
+         syrmu7UUAllbKwpIyIq9YrkjkAiDC+Au7AW1eZQwZ6Ux4YS/yNr1mxuwmAwcivaOA7/S
+         VNfuScL5AvOiSAjjI4M9e4AeoVPhV+yje9ch+7zNS/e7X2FarAv1+V6MX1md5wJbxQ9x
+         wFaIx49BrS4e2bee/gduT4UZUiKjLdih9oR9NmAho6/HVUTUGLsp7enlHHh8YxPYTd7T
+         43hA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1701442372; x=1702047172;
+        h=mime-version:references:in-reply-to:message-id:subject:from:to:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=G+JZCtvVy0gF9uDXcUQq6+ZP6P8AMCRqf2DwvmnnVCI=;
+        b=Ii0AEq+YbJjmhItZzXrXe0ExjPDYoI4BlH+CAcxiJ6I91+FRmgcNym/sH5dH2PdDJR
+         KaHnmTWusraMJSi4gMTy57ipdilff55iCpeHQeNX6cevzIQbigdK/50sP92Ymr2aHmY0
+         TZ84ZroY7lM6RJkVMDYLwaSBYYvpjwAmljc94SyG1xeXiUWyceTyI0/jj6+2145F6Cik
+         CMtNPTVDpv89q8fZrmVIyD2c5HhWolFK0yj2bmIiIkT29Q5o6/dCNBbwM/6EH662XM7P
+         ky+k6rbWZ1IS+4yt0qkMD8Z77pFj+Zxz+5FPXl5FeowcakZhcXktUhv4g4uNxNOzNOaE
+         vpgQ==
+X-Gm-Message-State: AOJu0Yx/NfF9gwDfTxbX31JvELo2AmAJmDuQbphptN4D2oW0CRUZgk7s
+	cWJV3JJ5pEvuJ+YMjWH0nG9P7Ga78a5QWA==
+X-Google-Smtp-Source: AGHT+IGFftvrYwijjzZxfaFvh81Yw0uBYXBxUfCurUODTvEnSN5Gn+hbTypSZIzqtOssm7qsV/Jesw==
+X-Received: by 2002:a05:6808:de0:b0:3b8:911a:77a7 with SMTP id g32-20020a0568080de000b003b8911a77a7mr2691214oic.52.1701442372419;
+        Fri, 01 Dec 2023 06:52:52 -0800 (PST)
+Return-Path: <jenniferrobert734@gmail.com>
+Received: from HopP (ec2-34-203-208-86.compute-1.amazonaws.com. [34.203.208.86])
+        by smtp.gmail.com with ESMTPSA id to13-20020a05620a4c8d00b007759a81d88esm1539312qkn.50.2023.12.01.06.52.51
+        for <duncan.wiegand8@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 01 Dec 2023 06:52:51 -0800 (PST)
+Date: Fri, 1 Dec 2023 14:52:51 +0000
+To: duncan.wiegand8@gmail.com
+From: Jennifer Robert <jenniferrobert734@gmail.com>
+Subject: Re:
+Message-ID: <c-181ee4-lpmqun8u-cavzly=n0dcyk@355.gethop.com>
+X-Mailer: Hop
+In-Reply-To: <6569f2c4.050a0220.f7960.7ecb@mx.google.com>
+References: <6569f2c4.050a0220.f7960.7ecb@mx.google.com>
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="b1_JIYzmWT2fC1VcR3SpUDGfjBGqwqOSydXlEGFtzag"
+
+This is a multi-part message in MIME format.
+
+--b1_JIYzmWT2fC1VcR3SpUDGfjBGqwqOSydXlEGFtzag
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: base64
+
+QmFuayBuYW1lIDo6IE1vbnphCgpTb3J0IGNvZGU6OjogMDQvMDAvMDMKCkFjY291bnQ6OjogNzUz
+MjQ2ODEKCk5hbWUgOkFuZHJldyBoYXllcwoKW0plbm5pZmVyIFJvYmVydCAtIENoYXQgQCBTcGlr
+ZV0oaHR0cHM6Ly9zcGlrZW5vdy5jb20vci9hLz9yZWY9c3Bpa2Utb3JnYW5pYy1zaWduYXR1cmUm
+X3RzPTJjejRkNSkJWzJjejRkNV0KCk9uIERlY2VtYmVyIDEsIDIwMjMgYXQgMTQ6NTAgR01ULCBE
+dW5jYW4gV2llZ2FuZCA8ZHVuY2FuLndpZWdhbmQ4QGdtYWlsLmNvbT4gd3JvdGU6CgpIaSBKZW5u
+aWZlciwKClRoYW5rcyBmb3IgZ2V0dGluZyBiYWNrIHRvIG1lLiBJJ20gZ2xhZCB0aGF0IGJhbmsg
+dHJhbnNmZXJzIGFyZSBva2F5LiBJdCBtYWtlcyB0aGluZ3MgbXVjaCBlYXNpZXIgYW5kIG1vcmUg
+Y29udmVuaWVudC4KClJlZ2FyZGluZyB0aGUgcGF5bWVudCwgSSdtIHJlYWR5IHRvIHByb2NlZWQg
+d2l0aCB0aGUgdHJhbnNmZXIuIENvdWxkIHlvdSBwbGVhc2UgcHJvdmlkZSBtZSB3aXRoIHRoZSBu
+ZWNlc3NhcnkgZGV0YWlscywgc3VjaCBhcyB0aGUgYWNjb3VudCBudW1iZXIsIHNvcnQgY29kZSwg
+YW5kIHRoZSBuYW1lIG9mIHRoZSBiYW5rPyBUaGlzIHdpbGwgYWxsb3cgbWUgdG8gbWFrZSB0aGUg
+cGF5bWVudCBhcyBzb29uIGFzIHBvc3NpYmxlLgoKSSBob3BlIGV2ZXJ5dGhpbmcgaXMgZ29pbmcg
+c21vb3RobHkgb24geW91ciBlbmQuIExldCBtZSBrbm93IGlmIHRoZXJlJ3MgYW55dGhpbmcgZWxz
+ZSBJIG5lZWQgdG8gZG8uIEknbSBoZXJlIHRvIGhlbHAgYW5kIG1ha2UgdGhpbmdzIGFzIHNtb290
+aCBhcyBwb3NzaWJsZS4KCkxvb2tpbmcgZm9yd2FyZCB0byB5b3VyIHJlc3BvbnNlLgoKQmVzdCBy
+ZWdhcmRzLApEdW5jYW4gV2llZ2FuZA==
+
+--b1_JIYzmWT2fC1VcR3SpUDGfjBGqwqOSydXlEGFtzag
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: base64
+
+PGRpdiBkaXI9IkxUUiI+PGJyLz48YnIvPkJhbmsgbmFtZSA6OiBNb256YSA8YnIvPjxici8+U29y
+dCBjb2RlOjo6IDA0LzAwLzAzPGJyLz48YnIvPkFjY291bnQ6OjogNzUzMjQ2ODE8YnIvPjxici8+
+TmFtZSA6QW5kcmV3IGhheWVzPC9kaXY+PGRpdiBjbGFzcz0iY2hhdGZsb3ctZW1iZWQiIHgtdHlw
+ZT0ic2lnbmF0dXJlIj48YnI+PHRhYmxlIGNlbGxzcGFjaW5nPSIwIiBjZWxscGVkZGluZz0iMCIg
+Ym9yZGVyPSIwIiBzdHlsZT0ibWFyZ2luLWJvdHRvbTo0cHgiPjx0cj48dGQ+PGEgaHJlZj0iaHR0
+cHM6Ly9zcGlrZW5vdy5jb20vci9hLz9yZWY9c3Bpa2Utb3JnYW5pYy1zaWduYXR1cmUmX3RzPTJj
+ejRkNSIgc3R5bGU9InRleHQtZGVjb3JhdGlvbjpub25lIj48YiBzdHlsZT0iY29sb3I6IzAwODRm
+ZiI+SmVubmlmZXIgUm9iZXJ0PC9iPjxzcGFuIHN0eWxlPSJjb2xvcjojOTk5Ij4gLSBDaGF0IEAg
+U3Bpa2U8L3NwYW4+PC9hPjwvdGQ+PHRkPjxpbWcgYWx0PSIyY3o0ZDUiIHdpZHRoPSIxMCIgaGVp
+Z2h0PSIxMCIgc3JjPSJodHRwczovL3NwaWtlbm93LmNvbS90LyI+PC90ZD48L3RyPjwvdGFibGU+
+PC9kaXY+PGRpdiBjbGFzcz0iaG9wX2V4dHJhIj48YnI+T24gRGVjZW1iZXIgMSwgMjAyMyBhdCAx
+NDo1MCBHTVQsIER1bmNhbiBXaWVnYW5kICZsdDs8YSBocmVmPSJtYWlsdG86ZHVuY2FuLndpZWdh
+bmQ4QGdtYWlsLmNvbSI+ZHVuY2FuLndpZWdhbmQ4QGdtYWlsLmNvbTwvYT4mZ3Q7IHdyb3RlOjxi
+cj48YmxvY2txdW90ZSBjbGFzcz0iaG9wX3F1b3RlIiBzdHlsZT0ibWFyZ2luOjAgMCAwIC4yZXg7
+Ym9yZGVyLWxlZnQ6MXB4ICNjY2Mgc29saWQ7cGFkZGluZy1sZWZ0OjFleCI+PGRpdj48YnI+PC9k
+aXY+SGkgSmVubmlmZXIsPGJyPjxicj5UaGFua3MgZm9yIGdldHRpbmcgYmFjayB0byBtZS4gSSdt
+IGdsYWQgdGhhdCBiYW5rIHRyYW5zZmVycyBhcmUgb2theS4gSXQgbWFrZXMgdGhpbmdzIG11Y2gg
+ZWFzaWVyIGFuZCBtb3JlIGNvbnZlbmllbnQuIDxicj48YnI+UmVnYXJkaW5nIHRoZSBwYXltZW50
+LCBJJ20gcmVhZHkgdG8gcHJvY2VlZCB3aXRoIHRoZSB0cmFuc2Zlci4gQ291bGQgeW91IHBsZWFz
+ZSBwcm92aWRlIG1lIHdpdGggdGhlIG5lY2Vzc2FyeSBkZXRhaWxzLCBzdWNoIGFzIHRoZSBhY2Nv
+dW50IG51bWJlciwgc29ydCBjb2RlLCBhbmQgdGhlIG5hbWUgb2YgdGhlIGJhbms/IFRoaXMgd2ls
+bCBhbGxvdyBtZSB0byBtYWtlIHRoZSBwYXltZW50IGFzIHNvb24gYXMgcG9zc2libGUuPGJyPjxi
+cj5JIGhvcGUgZXZlcnl0aGluZyBpcyBnb2luZyBzbW9vdGhseSBvbiB5b3VyIGVuZC4gTGV0IG1l
+IGtub3cgaWYgdGhlcmUncyBhbnl0aGluZyBlbHNlIEkgbmVlZCB0byBkby4gSSdtIGhlcmUgdG8g
+aGVscCBhbmQgbWFrZSB0aGluZ3MgYXMgc21vb3RoIGFzIHBvc3NpYmxlLjxicj48YnI+TG9va2lu
+ZyBmb3J3YXJkIHRvIHlvdXIgcmVzcG9uc2UuPGJyPjxicj5CZXN0IHJlZ2FyZHMsPGJyPkR1bmNh
+biBXaWVnYW5kPGJyPjxicj48ZGl2Pjxicj48L2Rpdj48L2Jsb2NrcXVvdGU+PC9kaXY+PGRpdiBj
+bGFzcz0iY2hhdGZsb3ctc3RhdHVzIj48aW1nIHNyYz0iaHR0cHM6Ly9ib2x0LmltL3QvPzdYZ1RR
+dF9fNmdnOWx4M1lfOUtWTlJEdDZ5RnNYaUZwR2ptVGFsNlBRYTJDQ2labVNpS1pZcmN1VVppRlhx
+QUgxNm94UmdGQ1JPTTllX1JoTnlsTm5nIj48L2Rpdj4=
+
+
+--b1_JIYzmWT2fC1VcR3SpUDGfjBGqwqOSydXlEGFtzag--

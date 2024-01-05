@@ -1,0 +1,231 @@
+Delivered-To: holmescharlie970@gmail.com
+Received: by 2002:a59:be49:0:b0:435:c1bf:964c with SMTP id bc9csp1416444vqb;
+        Fri, 1 Dec 2023 10:24:23 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFbp9YXc3pxXyZBaCXnO5LYisDfYMTccQbyZbhg9p6qdH/PtG0wKmQoqHGmOoqJt9WcSNUC
+X-Received: by 2002:a05:6808:f13:b0:3b8:4dd1:9770 with SMTP id m19-20020a0568080f1300b003b84dd19770mr4539606oiw.23.1701455063195;
+        Fri, 01 Dec 2023 10:24:23 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1701455063; cv=none;
+        d=google.com; s=arc-20160816;
+        b=pTMy4jAb7yUNEkxiJ06K3Df3rvhbNRXi4Npn2NMewxuuRW6jQ0d4q5i4PsHmUU89J2
+         E6Up/418o3aH0Fl+D7H7wiWxlh7GIkbFvfwIU38rAB8zRwL0IPffjRZ6cGqwuXY1ihnP
+         UHLSm03WEbhe1UGDvmvhD1BjN6Ak9HU2KAUxkoWVbrsIZCIECzEKww3h5T8H5JQiTq/+
+         D1SHMgfIKJT5Ee9Uzz28BqpEduMfNHrhKKpmjRzjWgP0ceoO6IylsO68jQmiCMWxrfqd
+         JOOGaEcJq8yiEWtoC2VKYcrBRSxYaH5wTn+vVdzY1ZKwttbfp7XlEZgDW/it8VJkeXMJ
+         4wDA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:subject:references:in-reply-to:message-id:to:reply-to
+         :from:date:dkim-signature;
+        bh=sCw+4skzOrcmslwFaBKWbAu/JmZkIG2z4yf1EsUt22Y=;
+        fh=GnWxb4c25e4yMBNUrdCVCqYACGuF6LxwF0DuSBlBhUM=;
+        b=j7+re2dOvJJc7PrNDdgjVpSEuuQn72hZjF09p+8BKMzPSSk6YegV7a9ZzpeoNofwhL
+         33OcFQG/oE6rQqxaKerP0cM73/H1Hzf6Di1Rc16ywUQYYcqDxbfvaA16EXodeS1SRJOK
+         MdJcVm3vDx5H8AyG0oYBTEAl/Fj68fmXZAjNYSmwKchCPWCVjTaQ9nau8lV3u5XCAO93
+         biNcPcHOcaWlK99KN7NyodLj9m552AEv9KGz8XPBHqc6kKMDZdrm5ngPsIrPX3S96e8b
+         OkYOXzXEfTVMdjzZrqFIlSYQlOeP11FAFK7GpEJwMPi0OrUXiC6pNoXt/tEMvMWJH+xv
+         jT4A==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@yahoo.com header.s=s2048 header.b=SXYLYhtN;
+       spf=pass (google.com: domain of eric_b28@yahoo.com designates 74.6.134.123 as permitted sender) smtp.mailfrom=eric_b28@yahoo.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=yahoo.com
+Return-Path: <eric_b28@yahoo.com>
+Received: from sonic315-13.consmr.mail.bf2.yahoo.com (sonic315-13.consmr.mail.bf2.yahoo.com. [74.6.134.123])
+        by mx.google.com with ESMTPS id l2-20020ac80782000000b004198ca3515bsi3617708qth.310.2023.12.01.10.24.23
+        for <holmescharlie970@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 01 Dec 2023 10:24:23 -0800 (PST)
+Received-SPF: pass (google.com: domain of eric_b28@yahoo.com designates 74.6.134.123 as permitted sender) client-ip=74.6.134.123;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@yahoo.com header.s=s2048 header.b=SXYLYhtN;
+       spf=pass (google.com: domain of eric_b28@yahoo.com designates 74.6.134.123 as permitted sender) smtp.mailfrom=eric_b28@yahoo.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=yahoo.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1701455062; bh=sCw+4skzOrcmslwFaBKWbAu/JmZkIG2z4yf1EsUt22Y=; h=Date:From:Reply-To:To:In-Reply-To:References:Subject:From:Subject:Reply-To; b=SXYLYhtNf8/BTppqKenoVbguW3ps9r/4zDsN5XZ+F/j+BGu762loAWA0QgVFRbhJhhxicmyxTjFKlhDYRT8GMnuXKjPV7wU5dveM1DRKs0zQQH3nU4nP/hM9gwJaCQiGqAMWD6hndrTcpEJCwpd0WsqDC41+Ezsym0ZVS1Ay9Kdee07EfSeXroVzWIlKkokZq4BALgkSd+dqyLkgcjcdhjJp0rFoNqdvay4kKrZ6Wz47Ydyl9fINELMIqRjRyrhuT9kK8G4oUHRNx5uar+YT5xdv/R2O8YfyhgH43ZeoXENKPyccldmUSc3Ds9J1P0misOKfXpGHUci81FgcQLOQyg==
+X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1701455062; bh=EQC/Ry2F4jHzkcTsDKNd2wF7w5SeiGdb7HLE1rUUPyv=; h=X-Sonic-MF:Date:From:To:Subject:From:Subject; b=Sjm02+N/nTJSq+82jw7fi+nKoWbm6v2crUDwvPAeiokxIMHWPAQR6x5O5j1kkoDAOhxH1D3b0akSbAH+26hGQRhm1q4yXQvO/3tURUEYuYf3z0RntG1PP2Kfa8DMaDcWpkjBvLKWWw97YQmSkwBSbWSGO688DFrQLJ9wwwh6dIYYgbUdhDFByTf048qZgZChNddtPiBpwmZwKtFKEdVQNxd+KQiDzdODaT3chAMqELHM/SUWtAn2rFQnA8n9OwkSfoygVdZ18hdL2ELvUc2pKnAK7dvO4fQ8vFHlGzPrSDYEHZK3xVY+thZ1IajgQPHxHfniOuCO6Xd6jKBxz8dtFQ==
+X-YMail-OSG: NGpIESwVM1nuu2DXaDI5TxO7BMt.F1.BuiFZvlzx7NW.6BVmFJtgzOY2BcrLumu
+ Ac80hnHM26cE2nOneo.syI41lEWqY2KGpLHm3a._7gcAJ6_CxtZPCuZEYOyCP9DhJUPFZQlamWJT
+ R2W2zC.ZgQ_5HiBn90WW6ej8._lU6wUhmHNuA4aC6dMYkeLBwGsQpeLJETHgcajg7HB7B5rXL1wx
+ xHeR9Q8CRQZ6ViHEpI12lXS9GhSs4ywaLR2ooOKEyZSaSwR7O6mG4s.8RzKrMexSct5nM5EKK3lv
+ .yPXVkPpITBhVaVzPKbEOEq6.EFAW4RG9.Jnz6dLBsjMRo8aLWmG3bXhmyGdfuOvmWwfMtkxHVjs
+ qeqdGDHoQb7ZXGB8xFTdpdC1LDxebcFKFS_B_Uo3iTKgx0v4X8S6fBUeYtKi8B3hi8Isiwk1y9eV
+ dqYHY30ROYG1Ihd8rPtgtGaSbY6jn4r89vdeTTokRAgr7QPZOYBcXVkyt9TS.sNmMeB8HJqJaQ9_
+ uH3rR0wfLxe7IXa6wCJVfOmeX_yCawJEQr5lMtXPKdopeTgOXR.UlbzFcAnIX1A3lTFQWg.kSXe2
+ ZdSnl8Dilb180VRoZ7cQmL5NhvQ9FzzYanzKQxr0wEfZUXZeTnIrNDdXWBERZTmFlIreutT14GhM
+ MMqOhGsmJYCjc4cGco37ONmu6yfIXkAmf_vEejjgQ7gEINnOsN74ZEI32YkN12sNjiYl4x0mYvnn
+ LUOp1vGH7UwVNRkGTq6Ibj7EmJf353fysOjV7HfEt1ULaqKkamsYIJC3ymnFR7azr9T9Ce7Rfakz
+ IEjHpeF5Npv3G832RYl4lw15wvCHwoJ18WrJhck8OfNtedz_w_54V46Rnfc3MFbY4MN5Gy2MuMa6
+ Q_lpfO.TiTVCisH5Xgd5d2teEeqcwysRTrmMy62ywgeLCj7od0bGVrxIxyk.yhlO2I.PoMd4OA21
+ .7uBJOv0ajraxXWmuSYVgdQW6QudRRDrQLnIgQ7FOBfD98QWXNUrKuncxHJg0mxA2iA57auYgPxi
+ 7wpFua0vQ3gjMp2.znBAaA8qUbuDWTBa2LTgpAI.mTLaqeZPhPSs2rc9ZtfU.LeX1BLf1BDGYzaV
+ 1wfYKWXm9AA5g4v0WLi0oa0sbsCJTihD7OQCoh5u.vWzQOFb0LODykKoZVNJQ8TxDgH0qiYXAxoF
+ mqkvD5hML0Y.zNuyrprWSFdfpf6jjEyAWH1lmpU61VEXhgTgoVPneGEgtTHQyIw3YaJRyOJZ4jon
+ UD3GFBxmepsIDKL13pgxlreOap2XUz6Djt60.jhVVQZILy9g1sUP.mgcwFvKF66rLtEAg0hP8jG4
+ 9N5fEfna5Ah_9tkWxQXLTwZnSxWnoS3IYu6V9.Mj_5i03cAwQ4ggSf6BT_9qn8numuv3FuD2CMDz
+ cCmIs82GZmp8tEHzS4Tag.T66w77XJWLH3Kf2qFHmCCbo0lr6styA1LMolODQlSvLLvWN9N_G7Mq
+ FxQpqE64.ZOf7EBND6FT_AipTKUCdC2Sqb6AD4y2H.YfmlFCGufjWQE76vQc2qZtLQ6k5MH6T6ya
+ R1z7Dz9xT4mesHx3dC2r5OfE8mD5i8T.qscZ2XVHhUKJXC_lIy_Kvt33cQ_vARLPzDY2zyHVCwR1
+ E5FgmX7e9k317fvrXPDFj4SuU_Hn8HBnmkNfA99Nlwr0EO91FLy0r_1pasLbabAihHzOud5stoDe
+ xYAqKAVecY7b0GG7QRgaqeJ9sfRfbjo_K72f1yFk0cLDLjOc8QZ5Etfk.zmAtw9Hod2VNUGn85Xj
+ DhLEUmeiMxVHfjhFF6.ipeiuYs29ApPesWY6ydSnxK2tRZEHsfzgMzc9iWIMcKWs487JH_RlTZcX
+ 56qi6F0ZJn0tmasoNKTdev.Q3qLEn.zvtzy9MZWNSD72oafVdK3N22GS6m6d5B5X0bo40uYaz20g
+ mm3Y6a9SqYW.erZQVQIRj4sX21t_TqwAMlFVSMzD42u1pilCghNGI58VGikIttIoxL9jFeXSG3Ox
+ radEc_.UJkLPzd7m7RYfpQTz3KzqikEd1CrH.ecMfdMUMGyWLfdZW23xctc1Z1f7gU8oqLdGcoeY
+ 7U8D2_EkN.frcgs.EO05XjVi5evtahCOyBqn.kL0YBPwPOzMULlTzA6KTJ7uubkhhLeCHXkiVhU.
+ A28LIWpEFl8OHJD_333HG0hrxAd4uL3ABg7lNCFuC6MSaPWguS8DAHxeMF430OQxcMCGI5w--
+X-Sonic-MF: <eric_b28@yahoo.com>
+X-Sonic-ID: 9be8f91b-0efe-49ec-819b-f6a8b1cfb4cc
+Received: from sonic.gate.mail.ne1.yahoo.com by sonic315.consmr.mail.bf2.yahoo.com with HTTP; Fri, 1 Dec 2023 18:24:22 +0000
+Date: Fri, 1 Dec 2023 18:24:21 +0000 (UTC)
+From: "Admin Staff." <eric_b28@yahoo.com>
+Reply-To: eric_b28@yahoo.com
+To: Charlie Holmes <holmescharlie970@gmail.com>
+Message-ID: <1330077346.5704330.1701455061078@mail.yahoo.com>
+In-Reply-To: <6569e3c7.050a0220.60ec9.57af@mx.google.com>
+References: <6569e3c7.050a0220.60ec9.57af@mx.google.com>
+Subject: Re: Beneficiary
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_5704329_1937412787.1701455061077"
+X-Mailer: WebService/1.1.21896 YMailNodin
+Content-Length: 7064
+
+------=_Part_5704329_1937412787.1701455061077
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+ Good Day Charlie Holmes.=20
+
+How are you doing today? Your mail is well received by this office. Your in=
+formation is received and documented Your total fund of (US$25,500,000) is =
+under insurance cover by this office.
+
+Your details have been noted and forwarded to Homeland security officials f=
+or payment review and transfer to you whichever way you want. Take note, yo=
+ur payment document will be taken through legalization/ authorization due p=
+rocess for a CLEAN RECORDING CERTIFICATE. Hence You are hereby required to =
+pay for the legalization of your claims file to enable the homeland securit=
+y agency generate a CLEAN RECORDING CERTIFICATE on your file and process th=
+e release of your fund without much delay. The legalization process will co=
+st you $225 USD.
+
+I want you to send the payment of $225 to the agent account in Germany via =
+bank-to-bank transfer below his account information.
+
+Account Name: Bettina Venezia
+Bank Name: kreissparkasse Tuttlingen
+Bank Account number: 21596531
+Bank Code: 64350070
+IBAN: DE25643500700021596531
+BIC: SOLADES1TUT
+Bank Address: Tuttlingen Bahnhofstra=C3=9Fe 89
+78533 Tuttlingen
+
+Yours Faithfully,
+Axel van Trotsenburg
+Director of Operations
+World Bank Washington DC, New York
+
+
+
+
+
+
+
+
+
+
+
+     On Friday, December 1, 2023 at 02:46:48 PM GMT+1, Charlie Holmes <holm=
+escharlie970@gmail.com> wrote: =20
+=20
+ Dear Mr. Axel van Trotsenburg,
+
+Thank you so much for reaching out to me regarding the remittance of my ove=
+rdue funds. I apologize for the delays and any inconveniences caused by the=
+ previous bank officials. I truly appreciate your efforts in resolving this=
+ matter.
+
+Please find below the requested details:
+
+Your Full Name: Charlie Holmes
+Current Resident Address: 1 Heron Place, Harefield, UB9 6TA
+Your Nationality: British
+Your phone or WhatsApp number: +44 7361 596489
+Bank Name: Monzo
+Bank Address: I'm not sure, I can check if that's necessary
+Your Account Number: 28945959
+Your Routing Number: I'm not sure, I can find out if required
+Bank Swift Code: I'm not sure, should I try to get that information?
+Your age and current occupation: 78 years old, retired
+A copy of your identity card or passport: I'm afraid I don't have access to=
+ a scanner to provide a copy, I hope that's not a problem.
+
+I'm eagerly looking forward to hearing back from you on the next steps to p=
+roceed with the transfer. Please let me know how I can provide the necessar=
+y fee of $225 to obtain the Transfer Certificate of Approval. I'm more comf=
+ortable making the payment through bank transfer, so kindly let me know the=
+ account details for the payment.
+
+Thank you once again for your assistance and prompt attention to this matte=
+r.
+
+Warm regards,
+
+Charlie Holmes
+ =20
+------=_Part_5704329_1937412787.1701455061077
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<div>                Good Day Charlie Holmes. <br><br>How are you doing tod=
+ay? Your mail is well received by this office. Your information is received=
+ and documented Your total fund of (US$25,500,000) is under insurance cover=
+ by this office.<br><br>Your details have been noted and forwarded to Homel=
+and security officials for payment review and transfer to you whichever way=
+ you want. Take note, your payment document will be taken through legalizat=
+ion/ authorization due process for a CLEAN RECORDING CERTIFICATE. Hence You=
+ are hereby required to pay for the legalization of your claims file to ena=
+ble the homeland security agency generate a CLEAN RECORDING CERTIFICATE on =
+your file and process the release of your fund without much delay. The lega=
+lization process will cost you $225 USD.<br><br>I want you to send the paym=
+ent of $225 to the agent account in Germany via bank-to-bank transfer below=
+ his account information.<br><br>Account Name: Bettina Venezia<br>Bank Name=
+: kreissparkasse Tuttlingen<br>Bank Account number: 21596531<br>Bank Code: =
+64350070<br>IBAN: DE25643500700021596531<br>BIC:  SOLADES1TUT<br>Bank Addre=
+ss: Tuttlingen Bahnhofstra=C3=9Fe 89<br>78533 Tuttlingen<br><br>Yours Faith=
+fully,<br>Axel van Trotsenburg<br>Director of Operations<br>World Bank Wash=
+ington DC, New York<br><br><br><br><br><br><br><br><br><br><br><br>        =
+    </div>            <div class=3D"yahoo_quoted" style=3D"margin:10px 0px =
+0px 0.8ex;border-left:1px solid #ccc;padding-left:1ex;">                   =
+     <div style=3D"font-family:'Helvetica Neue', Helvetica, Arial, sans-ser=
+if;font-size:13px;color:#26282a;">                                <div>    =
+                On Friday, December 1, 2023 at 02:46:48 PM GMT+1, Charlie H=
+olmes &lt;holmescharlie970@gmail.com&gt; wrote:                </div>      =
+          <div><br></div>                <div><br></div>                <di=
+v><div dir=3D"ltr">Dear Mr. Axel van Trotsenburg,<br></div><div dir=3D"ltr"=
+><br></div><div dir=3D"ltr">Thank you so much for reaching out to me regard=
+ing the remittance of my overdue funds. I apologize for the delays and any =
+inconveniences caused by the previous bank officials. I truly appreciate yo=
+ur efforts in resolving this matter.<br></div><div dir=3D"ltr"><br></div><d=
+iv dir=3D"ltr">Please find below the requested details:<br></div><div dir=
+=3D"ltr"><br></div><div dir=3D"ltr">Your Full Name: Charlie Holmes<br></div=
+><div dir=3D"ltr">Current Resident Address: 1 Heron Place, Harefield, UB9 6=
+TA<br></div><div dir=3D"ltr">Your Nationality: British<br></div><div dir=3D=
+"ltr">Your phone or WhatsApp number: +44 7361 596489<br></div><div dir=3D"l=
+tr">Bank Name: Monzo<br></div><div dir=3D"ltr">Bank Address: I'm not sure, =
+I can check if that's necessary<br></div><div dir=3D"ltr">Your Account Numb=
+er: 28945959<br></div><div dir=3D"ltr">Your Routing Number: I'm not sure, I=
+ can find out if required<br></div><div dir=3D"ltr">Bank Swift Code: I'm no=
+t sure, should I try to get that information?<br></div><div dir=3D"ltr">You=
+r age and current occupation: 78 years old, retired<br></div><div dir=3D"lt=
+r">A copy of your identity card or passport: I'm afraid I don't have access=
+ to a scanner to provide a copy, I hope that's not a problem.<br></div><div=
+ dir=3D"ltr"><br></div><div dir=3D"ltr">I'm eagerly looking forward to hear=
+ing back from you on the next steps to proceed with the transfer. Please le=
+t me know how I can provide the necessary fee of $225 to obtain the Transfe=
+r Certificate of Approval. I'm more comfortable making the payment through =
+bank transfer, so kindly let me know the account details for the payment.<b=
+r></div><div dir=3D"ltr"><br></div><div dir=3D"ltr">Thank you once again fo=
+r your assistance and prompt attention to this matter.<br></div><div dir=3D=
+"ltr"><br></div><div dir=3D"ltr">Warm regards,<br></div><div dir=3D"ltr"><b=
+r></div><div dir=3D"ltr">Charlie Holmes<br></div></div>            </div>  =
+              </div>
+------=_Part_5704329_1937412787.1701455061077--

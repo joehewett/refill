@@ -1,0 +1,202 @@
+Delivered-To: carrmia36@gmail.com
+Received: by 2002:a9a:5783:0:b0:280:f6ef:f358 with SMTP id g3csp1313594lkf;
+        Fri, 1 Dec 2023 10:28:45 -0800 (PST)
+X-Received: by 2002:a05:6402:2031:b0:54c:4837:8b73 with SMTP id ay17-20020a056402203100b0054c48378b73mr1210261edb.65.1701455325649;
+        Fri, 01 Dec 2023 10:28:45 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1701455325; cv=none;
+        d=google.com; s=arc-20160816;
+        b=nzYl3GwMl4u4wRnEOCju2iwfafcbNwB2yR0SM2ykBmt8xhjN/qOJyHGKpwxP1GKLLB
+         R0KomUAAZQx3cTwKSGh74vIKsvx56aO2gcGsr+dAQfhhh4rkF0/niDAr9WqFZKIFYIw7
+         hd7I7YcawEiOYGzrpB3lJESTrPb/keWNw7jQuhwh1x7TKcSGYR12fz9N1MWWlwStcsQs
+         VW6mO8r9Ynk5AXXRyDBFKAsobscqMikngQYzZ6x3M87d5oIXu/t6892VHuqL0HngsQ6Y
+         y88lsc0QZpB7ZizDkT5fzXD0MrHlhXz4Gsh2Fj8xHRhe3xs6BmaeskWVB4JAbrbo35UA
+         Aibg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:references:in-reply-to:reply-to
+         :mime-version:dkim-signature;
+        bh=8iMic5NoiVHn3sy5Y/UdGNz/G9RZGpxAo4INh2223G4=;
+        fh=cg6Paem4aF84O8ACXTHRwxONKtWSShKAunfT9ePjBFg=;
+        b=bm/8UsC43y1OruxdZ+vPesMG9QVegueHYQvHakB5PZCssiWedj68CWTj9jr2cdUgdM
+         v0wN1T6iINShUUnin2Vn/1FGqIGY+qIjA+MH6tYfS8QEt08s/ytWR0ENvAkOUbFWzEa5
+         jhfsy5xa86af7vGy78K9/axkW57lH9dlt0dy1ulIIlABP8/sk3FewBzSweyXZ5O1V47E
+         PMCNYAElJJpukFRMRMlTA8u+0QNjRPxN3SLcsO7TMroRO7tKPwfhyiTf2ifkTzMwWHW1
+         l4bMdC+Uvsd5nxeD1jHKvwA1KEJHWTfjnkZoZN/0XABIiW6iJGPPmgN8GlVVpYL5BMY/
+         QnTA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=VMSNXaRo;
+       spf=pass (google.com: domain of foreignremitt8@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=foreignremitt8@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <foreignremitt8@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id r26-20020aa7cb9a000000b0054916224c59sor1218657edt.0.2023.12.01.10.28.45
+        for <carrmia36@gmail.com>
+        (Google Transport Security);
+        Fri, 01 Dec 2023 10:28:45 -0800 (PST)
+Received-SPF: pass (google.com: domain of foreignremitt8@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=VMSNXaRo;
+       spf=pass (google.com: domain of foreignremitt8@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=foreignremitt8@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1701455325; x=1702060125; dara=google.com;
+        h=to:subject:message-id:date:from:references:in-reply-to:reply-to
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=8iMic5NoiVHn3sy5Y/UdGNz/G9RZGpxAo4INh2223G4=;
+        b=VMSNXaRoWzcwZRwJDt/iGjegMfEVNQagTEBcN6WX0DBIaXDnJK/bC9/ldiGqvOsvAJ
+         USAVdbkld5BypwGss4aFZrKQI46aWNfINJfDcJGS3TkqrTdNeVGZfxtP2R9uybbbJJlK
+         0qlk2aLtiu5h/cA5DZHIZhChFc4VDVj5zXxa6NnWxxOBvwbJ2m2mjl2yEHEMw82FtvJR
+         Pvr+h1GFg/3+794SroC3K6NF4f4j9vDC/6eJkWMNqL5Wi+/fm21eCh2yEw0ymyvnwxlF
+         knD/lY7+BgZwuNLEgTnFzxS069rHTpzxhIb93/7A50PnevhOgrCGnzLWDpCSJI+y7CVX
+         pnRg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1701455325; x=1702060125;
+        h=to:subject:message-id:date:from:references:in-reply-to:reply-to
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=8iMic5NoiVHn3sy5Y/UdGNz/G9RZGpxAo4INh2223G4=;
+        b=a59D/avZBTTCY8klBUEw37T8JXOsN6nC8sMuqebVh+vD2bVAIAhLNHyTGjMn2NJXmD
+         01KYfRPNl8zpfz+cO9nfFBYSleViZsrQhdhCJnhaAMGuCTcWk521mmZDIsHvVKEfyGlQ
+         m61RdsP5wzuy+9AUNw8SWoNR3nmR+5wUAgPgW3P4lZizhid8vGSD9W6zDgfMOLOdZ9rr
+         xwR1vsppkBN0Hf7MMMB8c0FjFEBEPx8Vtlu7sFKfM7ctkY/mmW3jkAUmxQeYtAe9rdpp
+         WWi8c0nwn2FQLAfHXUfwYe08cesTyFiqD3gSymvwaBHNDJanij+r5Wg5Y9tj6JMySEQT
+         4B7w==
+X-Gm-Message-State: AOJu0YztIGXnE7aME8UHoEWhWxDPwEVJnmGZHHAdRNSdkPtrSjm29/Ob
+	nfgXfj0PjyQ+hArnr8RpHBn/5/G2R1xnvxpvxiZvsySjCU8mNqXC
+X-Google-Smtp-Source: AGHT+IHqY9hZF/KNv5cHzUJ47QoJwkWjh4dQjcQ3Hkw50akoJDcfhzWuv31XCwvgaSo4eJPMVWcJEz+rWfgrHhwZMSo=
+X-Received: by 2002:aa7:c989:0:b0:54a:e954:1c12 with SMTP id
+ c9-20020aa7c989000000b0054ae9541c12mr1202988edt.38.1701455324763; Fri, 01 Dec
+ 2023 10:28:44 -0800 (PST)
+MIME-Version: 1.0
+Received: by 2002:a05:6402:11ca:b0:549:339:a6b6 with HTTP; Fri, 1 Dec 2023
+ 10:28:44 -0800 (PST)
+Reply-To: foreignremitt8@gmail.com
+In-Reply-To: <6569eb0b.050a0220.e08e4.1f75@mx.google.com>
+References: <6569eb0b.050a0220.e08e4.1f75@mx.google.com>
+From: =?UTF-8?Q?Central_Bank_of_the_Republic_of_T=C3=BCrkiye?= <foreignremitt8@gmail.com>
+Date: Fri, 1 Dec 2023 19:28:44 +0100
+Message-ID: <CALU17SrDM1ZN7EEP2OFOQ4T+NAj98pFhF=LCJY09SykJObXsJw@mail.gmail.com>
+Subject: Dear Mia Carr.
+To: Mia Carr <carrmia36@gmail.com>
+Content-Type: multipart/alternative; boundary="0000000000003bdb48060b76f07f"
+
+--0000000000003bdb48060b76f07f
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Dear Mia Carr,
+
+Your mail is acknowledged. Bellow is the account information where you
+should send the delivery charges:
+
+QNB F=C4=B0NANSBANK - USD
+
+BANK NAME
+QNB F=C4=B0NANSBAK
+
+ACCOUNT NAME
+SERDAL YILDIRIM
+
+ACCOUNT NUMBER
+131225966
+
+IBAN
+TR12 0011 1000 0000 0131 2259 66
+
+SWIFT CODE
+FNNBTRISXXX
+
+BRANCH CODE
+03663
+
+BANK ADRESS
+Ak=C5=9Femsettin mah Fevzi Pa=C5=9Fa cad No:97 Fatih / =C4=B0STANBUL
+
+HOME ADDRESS
+Aksaray mah inkilap cad no 45 daire 3 FATIH ISTANBUL.
+
+Send the payment slip.
+
+Thanks.
+
+Dr. Usman Shamsudeen,
+Accounting Director,
+International Remittance Department,
+Central Bank of the Republic of Turkey.
+
+
+
+
+
+
+On Thursday, November 30, 2023, Mia Carr <carrmia36@gmail.com> wrote:
+
+> Dear Dr. Usman Shamsudeen,
+>
+> Thank you so much for the update! I'm thrilled to hear that my certified
+> draft cheque is ready for delivery. It's such a relief to know that I'll =
+be
+> receiving it soon.
+>
+> I understand that the courier company doesn't accept Cash On Delivery. I
+> apologize for any inconvenience, but I'm currently unable to use Moneygra=
+m
+> or Western Union to make the payment. Is there any way I can pay the
+> delivery cost through a bank transfer? That would be much easier for me,
+> and I can proceed with the payment right away.
+>
+> Please let me know if this is possible, and if you can provide me with
+> bank details for the transfer. I'll make sure to send the payment as soon
+> as I receive the information.
+>
+> Thank you for your understanding and assistance.
+>
+> Warm regards,
+> Mia Carr
+>
+
+--0000000000003bdb48060b76f07f
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div><div>Dear Mia Carr,</div><div><br></div><div>Your mail is acknowledged=
+. Bellow is the account information where you should send the delivery char=
+ges:</div><div><br></div><div>QNB F=C4=B0NANSBANK - USD</div><div><br></div=
+><div>BANK NAME=C2=A0</div><div>QNB F=C4=B0NANSBAK=C2=A0</div><div>=C2=A0</=
+div><div>ACCOUNT NAME=C2=A0</div><div>SERDAL YILDIRIM=C2=A0</div><div><br><=
+/div><div>ACCOUNT NUMBER=C2=A0</div><div>131225966</div><div><br></div><div=
+>IBAN=C2=A0</div><div>TR12 0011 1000 0000 0131 2259 66</div><div><br></div>=
+<div>SWIFT CODE</div><div>FNNBTRISXXX</div><div><br></div><div>BRANCH CODE<=
+/div><div>03663</div><div><br></div><div>BANK ADRESS</div><div>Ak=C5=9Femse=
+ttin mah Fevzi Pa=C5=9Fa cad No:97 Fatih / =C4=B0STANBUL</div><div><br></di=
+v><div>HOME ADDRESS=C2=A0</div><div>Aksaray mah inkilap cad no 45 daire 3 F=
+ATIH ISTANBUL.</div><div><br></div><div>Send the payment slip.</div><div><b=
+r></div><div>Thanks.</div><div><br></div><div>Dr. Usman Shamsudeen,</div><d=
+iv>Accounting Director,</div><div>International Remittance Department,</div=
+><div>Central Bank of the Republic of Turkey.</div></div><div><br></div><di=
+v><br></div><div><br></div><div><br></div><br><br>On Thursday, November 30,=
+ 2023, Mia Carr &lt;<a href=3D"mailto:carrmia36@gmail.com">carrmia36@gmail.=
+com</a>&gt; wrote:<br><blockquote class=3D"gmail_quote" style=3D"margin:0 0=
+ 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">Dear Dr. Usman Shamsud=
+een,<br>
+<br>
+Thank you so much for the update! I&#39;m thrilled to hear that my certifie=
+d draft cheque is ready for delivery. It&#39;s such a relief to know that I=
+&#39;ll be receiving it soon. <br>
+<br>
+I understand that the courier company doesn&#39;t accept Cash On Delivery. =
+I apologize for any inconvenience, but I&#39;m currently unable to use Mone=
+ygram or Western Union to make the payment. Is there any way I can pay the =
+delivery cost through a bank transfer? That would be much easier for me, an=
+d I can proceed with the payment right away.<br>
+<br>
+Please let me know if this is possible, and if you can provide me with bank=
+ details for the transfer. I&#39;ll make sure to send the payment as soon a=
+s I receive the information.<br>
+<br>
+Thank you for your understanding and assistance.<br>
+<br>
+Warm regards,<br>
+Mia Carr<br>
+</blockquote>
+
+--0000000000003bdb48060b76f07f--

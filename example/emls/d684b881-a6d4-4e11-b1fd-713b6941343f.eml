@@ -1,0 +1,55 @@
+Received: from mail-yb1-f182.google.com ([209.85.219.182])
+	by ip-10-130-0-38 (Haraka/2.8.20) with ESMTP id 71BA4BA5-9111-40EA-968D-67602FCD2D52.1
+	envelope-from <taqwinej@gmail.com>;
+	Fri, 01 Dec 2023 09:52:33 +0000
+Received: by mail-yb1-f182.google.com with SMTP id 3f1490d57ef6-da077db5145so329339276.0
+        for <redacted@threatwave.com>; Fri, 01 Dec 2023 01:52:32 -0800 (PST)
+X-VALIDITY-FEED: TW
+X-FEED-ID: TTWV
+X-SMTP-UUID: 58d9b15c-902f-11ee-b38c-0242c0a87804
+X-SMTP-TS: 1701424352
+X-SMTP-IP: 209.85.219.182
+X-SMTP-HELO: mail-yb1-f182.google.com
+X-SMTP-MAILFROM: <taqwinej@gmail.com>
+X-SMTP-RCPTS: <redacted@threatwave.com>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1701424351; x=1702029151; darn=[REDACTED_DOMAIN];
+        h=to:subject:message-id:date:from:reply-to:mime-version:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=UY9wA9R9rHymAGy/FV0gVTnHneAyQO8vBbKr5FGkObs=;
+        b=lhOXUi09OagacZvbOY4XDsDpA+feGt8qBSBmsRJ3NoGVHW5xejbf62+Wnn7tTX8jWh
+         mtYMUgItLfyCflMVVzGtjqL4mzwgqhWOim3hbEzRhUOc4u0f3MASuoZmbpI7HCAYfbCz
+         pH5/Qp2HI9QUuSMhsHnRaNGCAIyhUN1nDQ7/rkl8VcT+t2sCDlr8L9w3kFk3ToFkdd4h
+         rNUWjYgKIwgCGUfSv5BSoU6nDuvRHQErjEOxyKrU9RJT4fv0LkbMSjYdW1rMhhWSI/Xg
+         8jT18ckVooq6J+NSFQFMuFjksVmuh7r9CRo9SAJpfxWAMvf1cdlsHEPAiozPTYfr/JVz
+         V4rw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1701424351; x=1702029151;
+        h=to:subject:message-id:date:from:reply-to:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=UY9wA9R9rHymAGy/FV0gVTnHneAyQO8vBbKr5FGkObs=;
+        b=V0PY5+iM3QrpMwCc2S6U1+FcQKJrL6lDbRzawwpve1Er48D5LkWyNBWh6Yd0SQPCRk
+         hNr/uKIfgObuoIVgIKFHftaTkAWR205MDbY+KhUeGRXHAEaFkol26mbMZoZ/hDk/S/Et
+         olL4no0d/0E9s8NHM3WA5em6RsUwI4j/uQvEEZXvgRD6KQyaIGX5tdBvNiBsod5oWgSU
+         dG/Kx00VfL+5Zbl0uKCNEfTHW1G/8PEJXeuDdPNKQWCwpFDjfbszbm3J6EpuzKBA9Eiw
+         IUMZmeYefV+oBksZEoElhvVk3iykff16R2hteR2U0KyTDPata1y0PjtFFxiCukVMwT7L
+         O+WQ==
+X-Gm-Message-State: AOJu0YyIvGVObzPDmTQmtNBq/Pag3ActpzwYzyzuhjuj1hsGFxHfFotX
+	Fg4TUYZmGcBeFrsP56lA9iu5CI6Sd9oeoRuxQDo=
+X-Google-Smtp-Source: AGHT+IGeoKGQqFqtVFRKBoU9ZsSb/96zzdaDy+E7rjn8rKiFi6i6THopy799aYbcBsHdZeH75ViSt9bqdPcXQ4nACkg=
+X-Received: by 2002:a25:9741:0:b0:db5:c77e:b578 with SMTP id
+ h1-20020a259741000000b00db5c77eb578mr767770ybo.12.1701424350706; Fri, 01 Dec
+ 2023 01:52:30 -0800 (PST)
+MIME-Version: 1.0
+Reply-To: Riichardwahll@gmail.com
+From: RICHARD WAHL <taqwinej@gmail.com>
+Date: Fri, 1 Dec 2023 12:52:19 +0300
+Message-ID: <CAMT5yLsipPB6_a3ag9cWC+3hxW2Vf8gq5LFsrEOcwes5OHLXKg@mail.gmail.com>
+Subject: Hast du meine Email bekommen
+To: undisclosed-recipients:;
+Bcc: redacted@threatwave.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+-- Â Ich hoffe, diese E-Mail kommt bei Ihnen gut an. Ich melde mich bei Ihnenin Bezug auf die 1.200.000,00 â‚¬ Spende, die Ihnen zugesprochen wurde. Ich verstehe, dass Sie in dieser Angelegenheit einige E-Mails von mir erhalten haben, aber leider habe ich noch keine Antwort von Ihnen erhalten.Um eine reibungslose und fristgerechte Ãœberweisung des Stipendiums zu gewÃ¤hrleisten, bitte ich Sie hÃ¶flich darumGeben Sie mir folgende Informationen,VOLLSTÃ„NDIGER NAME:ADRESSE:WHATSAPP-NUMMER:Â Ich mÃ¶chte Ihnen versichern, dass dies ein legitimes Angebot ist und dass dies nicht erforderlich istSorgen Sie sich um betrÃ¼gerische AktivitÃ¤ten. Ich fordere Sie jedoch auf, darauf zu reagierenE-Mail so schnell wie mÃ¶glich, um VerzÃ¶gerungen zu vermeiden.Vielen Dank, dass Sie sich die Zeit genommen haben, diese Nachricht zu lesen, und ich freue mich darauf, bald von Ihnen zu hÃ¶ren. Herzlichen GlÃ¼ckwunsch zum glÃ¼cklichen Gewinner.Mit freundlichen GrÃ¼ÃŸen,Richard Wahl
+

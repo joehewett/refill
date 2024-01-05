@@ -1,0 +1,418 @@
+Delivered-To: mohammaddavey00@gmail.com
+Received: by 2002:a05:622a:ed4:b0:41e:a0bd:9e46 with SMTP id df20csp1117042qtb;
+        Fri, 1 Dec 2023 08:23:44 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHSzBmVpp8mO5dxMgioQajMJC+bz1Axljiyue5WpZFRujmYxyg2XVrPHxdWZnWIVI3CeaJs
+X-Received: by 2002:a05:620a:4802:b0:774:2470:6797 with SMTP id eb2-20020a05620a480200b0077424706797mr40680192qkb.21.1701447824067;
+        Fri, 01 Dec 2023 08:23:44 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1701447824; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=RcFoQCNFuGRaxfvgT/s1JILtimJ2kyrGY10bD5eJl9YNyqw/L/Z3nzagBTxS68vFb7
+         rkP0VeNhZfvr1urqCNqmCAy4d/mOAx1oGCNRIGigHOVXElR39BD6U1zBWG54PDOVaiVN
+         o9KPy0vqS5cEBkKgB+0T0xuh1paet38Kx8Ja1lmwwPeI8DztedS1G+pN9J+w/C3pkSc6
+         vd3GM7leZJ/Sf6ZfBEyHKjB084gxpywsnIz1HrteEnJdSXxBimDHZNJoFirgBVn+xxxm
+         T93QpM3KM2xj8NWOFpH328hfwvsFQx0+5rbRG1MdtaZLIHb86F+xl3znNZ5NDKELrVbk
+         RXCg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:msip_labels:content-language:accept-language
+         :in-reply-to:references:message-id:date:thread-index:thread-topic
+         :subject:to:from:dkim-signature;
+        bh=WQoA1fs1jV2STK6zKyXPIcc/hu5xjJqy5RSOo+pRQ5E=;
+        fh=pDvQ1wPY3v4nNS0ya5CwsaAlHz+Iz1mi6OfovXygwyk=;
+        b=LDWx6ZEksAXEuFHovKvKo3Un1XCknF2KlgwcKD7WcuLMRybl9jTGd21P54azBwax6j
+         aUUKX90IJPUMYlM2utRxLehrz84wjKjrjSen9VLl8UN3/ZnQO2ndDlEkdFldbjNz1t+b
+         VAjhyyHwBbrPLO+tLsvfBUiAUwv3duarwLK91B6XnCRH/FlK0e4HSWhkb9nHQMNmUyh2
+         EgLpVmNBy8WpVW0iR1JSETiObQvNVbaqFHrAhJx/EtpMXpa0/p04T8xJvakJuUOTgyaT
+         e8JwTrZOfKfaDpM5ScXWl+RKIIs1rOXSLQIL1kIUDRZ/+3DiTR6mgb/ptY2SjtCBLHQ/
+         ezeg==
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@outlook.com header.s=selector1 header.b=jmMztVqW;
+       arc=pass (i=1);
+       spf=pass (google.com: domain of bteklem2023@outlook.com designates 2a01:111:f403:2e1b::800 as permitted sender) smtp.mailfrom=bteklem2023@outlook.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=outlook.com
+Return-Path: <bteklem2023@outlook.com>
+Received: from GBR01-CWX-obe.outbound.protection.outlook.com (mail-cwxgbr01olkn20800.outbound.protection.outlook.com. [2a01:111:f403:2e1b::800])
+        by mx.google.com with ESMTPS id x12-20020a05620a448c00b0077d7d812e3csi3751739qkp.691.2023.12.01.08.23.43
+        for <mohammaddavey00@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 01 Dec 2023 08:23:44 -0800 (PST)
+Received-SPF: pass (google.com: domain of bteklem2023@outlook.com designates 2a01:111:f403:2e1b::800 as permitted sender) client-ip=2a01:111:f403:2e1b::800;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@outlook.com header.s=selector1 header.b=jmMztVqW;
+       arc=pass (i=1);
+       spf=pass (google.com: domain of bteklem2023@outlook.com designates 2a01:111:f403:2e1b::800 as permitted sender) smtp.mailfrom=bteklem2023@outlook.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=outlook.com
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=gbJ5ftXEJ25Y71cg18bw2exuG3p9uanrydKRTHnUhrvCM9FNfpFvGFKA3y/ebAn+d3hdW9l5sAP091xvr9WSj3/b7I4G5D0/XrVVjInKQJajgG/aKfHpKQ35Ve1o5ET8LbtZ9CwoY8RWX16SngveLQkpeJgfJKocjJQ8yIHezleA4j5APQCVc4zPDzeOyaQXTOxuTPYDQMM91XxBAzuWMWjDYEJARDhFHUO69GugcvIXRiqiEtzDgXbooiu4NlkON0+kBYVpu/jUoI+gOFEj+yIW+dh0ds+HisAMfOiTmF+RhQYBNQ4KTi+qCUuQur+zDT1OEqX9Qu7YljKTyNn6/Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WQoA1fs1jV2STK6zKyXPIcc/hu5xjJqy5RSOo+pRQ5E=;
+ b=D2G5/UFNQf0B7r1PWKUqvYMaHqzt8+99swgUMx9tAvDPj24sFTCzBWzl07zBaHIOTlg9BUUD4gDZxUIS0BLD33xTUZiTJGGMlJDoI1ojM320rxjgza4MdCbaPyccnRR29PL0M+02RBlAwj2OJTmsA/58rkt6TWCQysP1hRjCkv3nlNsSbO8Z8PL3VRzT3mgVwRRPJQK6q9wjjxmT1Cmq9bo+DHuwA0AeIlcr0c+wB9dJuYFT3AGNqWLO9iXowMeiKI6b0uZrUqetcaQMMu2d7duZnMJZ1g1lpg4dZIPxtHpoPLYgXgVsb1orEkbDZMvgJCLNYGbr6m/1SPK1E+k4Uw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=WQoA1fs1jV2STK6zKyXPIcc/hu5xjJqy5RSOo+pRQ5E=;
+ b=jmMztVqWzlXBW17YcMZL5xrhFVqndGOD0D9V5cyaqIhWxfRr5I8sw7GNHxGXvlUc0z8mMPHikssrKS+lbdqkiTr3wd+wZd969x8w+bzG4F7sQx2LKM0ImBpPnoS+2DHE18IcXNxY8k//4Gz4ahQN2bigaGoFtcNjQR7u+HVA9bxIzYtI4QI1YDjFUa32+AXsH60sroAUzs9g5UatRHCmkTY7uzyLgePMlXwFqXBeALNgLkXuSK2cHPr+2KGoFkYFjJBJIkESCHKOhiU724zUnqZv/VeS5rr91w48fN8vd1GNZd3ES9ZJ7at47lkXlzP/GCA2X3Vsv6gfM9YC1frUNg==
+Received: from LOYP123MB3360.GBRP123.PROD.OUTLOOK.COM (2603:10a6:600:11d::14)
+ by LO4P123MB6529.GBRP123.PROD.OUTLOOK.COM (2603:10a6:600:27d::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7046.27; Fri, 1 Dec
+ 2023 16:23:42 +0000
+Received: from LOYP123MB3360.GBRP123.PROD.OUTLOOK.COM
+ ([fe80::432d:f215:556f:b3a4]) by LOYP123MB3360.GBRP123.PROD.OUTLOOK.COM
+ ([fe80::432d:f215:556f:b3a4%3]) with mapi id 15.20.7046.023; Fri, 1 Dec 2023
+ 16:23:42 +0000
+From: "REV  FRANCIS EZE" <bteklem2023@outlook.com>
+To: Mohammad Davey <mohammaddavey00@gmail.com>
+Subject: Re: From Pastor Francis Eze
+Thread-Topic: From Pastor Francis Eze
+Thread-Index: AQHaJFxP5ueGGopx1UCATZATWbxBdbCUnLhF
+Date: Fri, 1 Dec 2023 16:23:42 +0000
+Message-ID:
+ <LOYP123MB33606EB28DA91308768F13A5A381A@LOYP123MB3360.GBRP123.PROD.OUTLOOK.COM>
+References: <6569e2e6.050a0220.9a9a8.55ed@mx.google.com>
+In-Reply-To: <6569e2e6.050a0220.9a9a8.55ed@mx.google.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+msip_labels:
+x-tmn: [zF7fC/gaBjsMDP7IU8VsizPAfmrZJFsy0kAA6bVj0+o=]
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: LOYP123MB3360:EE_|LO4P123MB6529:EE_
+x-ms-office365-filtering-correlation-id: fb7bf70c-b5fb-45a0-89d5-08dbf289e254
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info:
+ j/EslmZAyEB0bDY0De4AYbMd63WXz88HqrvM40mJ4jiC/wUNlfZxfuPVM/eoBS3bD8NcrygOKdVxYc3+YGX7IwXU/LxIlX03JwRLJGbmAkd1AstEasGH/23Hv/vEIHjntkFfL9+svaOmaVMxHRgdukwOadlW0ctpjdzeEf8DHkJSHeBUvpFw57a/0NmNjLq6WtmaHdZyjJmkN1ccMkjWgzmoFJkmEMk4O+i00K35Gcw/rupPbEymQCtHl/jLlooUYZV2W8tXrapJ8iB5kuSWjjiRSoWksbJAWauXnKaDt9wOXKGnbEE8hUsMDc55eorKzzZfanfWuoJwgugA26/N1q/EqjWnZ/XsYT03u5m37koEpewxZtYjueJBXQCKu6zNnj5ZzxotdRnXeUxm5OO5ZIXeGwltyoYvYpd5TULOsVkpHhd024h/iFoyE8GdLoPDV/IS7WXbeTTE7dxPq9LqrVn04/M5stLdwMWyclKjyvUeCZFXdpC8J7dmmdTDXnaqaFVFFKq8lVsoQcwSGr6d47TbFkrmitPF7hLbbYHSIksN/tHzhcP031nzSgZrNLco
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?us-ascii?Q?pZRjsYkFNhHajd04bNJVgfdRklZ9PQBj1X00DhRcN3ci8uLLPKEvkYfEs3cU?=
+ =?us-ascii?Q?Gy1eu8OErlKoTHkEU70EV7bSP8czHEu+jiXTQiPJxxb1tiSXdc0QmEsrBIq6?=
+ =?us-ascii?Q?ZTDDk30inNs7m4sNmz3yEwwfCDMrUfwC7LO68e7WqTMC5q9BMB+aHsaT+YSl?=
+ =?us-ascii?Q?ck0fOPUphq14eMFa4miqi9DiMbJJB9KuzEPz5HxG8Zg6G00aSj//tkFwp8kq?=
+ =?us-ascii?Q?KmuEAZY2hE8ZyVmHHYqN3u7MjT2meEjukcWEplAoGqmOBOgMAEMuLZO6HfQF?=
+ =?us-ascii?Q?DhkrRUMCTr4y3AqlalQDgbivCiPodJBruYHRxUVkddCAxH7/M/uAIru1YoQR?=
+ =?us-ascii?Q?+huVA9fONphTA1PLJuPLo/NLs7y4aUp5+FGPEGGUrBI6Le7yEbVJsvb+igKU?=
+ =?us-ascii?Q?s4b0ieVnql9d/WTHTmrsEISBy+rShQwKcl0Tx3zH6BPseJLa0a7qBzm0ywrN?=
+ =?us-ascii?Q?ujyIHWMn0+ymP9+u7MUAS7rxFlVjsitzmToHgITioo62tsWfV17OMC/gelAM?=
+ =?us-ascii?Q?LeydpWDHl8YQ2hFEvLypPlSVaMNYWuWN27sXf2lCQXcDG9jnn3GgcSOE/0B3?=
+ =?us-ascii?Q?zC27Blvfcylv0IRQC4ZAP0gATcl14a981vLi23P9WkDyy0XwgmgWPlC36HLI?=
+ =?us-ascii?Q?bSflU7uQIzJfNh7gU6xiuWEwakSKLsknhl/31OKtO7lWtvdyY4HrRDvdnc0t?=
+ =?us-ascii?Q?3Kx05M/WHLJ/AIAobT+egQDco5ydKCTx2aKJ98/3jHfVMC9J4lhoXdgwbPh8?=
+ =?us-ascii?Q?C0ynVtOPR/VmYFuvioVPML72kbtUT2sk8bJF92vDRcAT6+WQUJv0aQUNgTUp?=
+ =?us-ascii?Q?KNJUNPIKPXdBP7FsLRsh9Fp8jxNjPe37RCFCEVzc6jEEhwzdj7c6esmGzWCx?=
+ =?us-ascii?Q?x071134jgEq4AtJuW/cL7W5qFqWU92VuaCzEjcU/d2AG69I/XBBijhi9z/Jn?=
+ =?us-ascii?Q?+AHJy06LpwzIDNsfxY/MxkrEOGsFMWkzlzGgjUY79dknGXSfKZ25OsZAPOkv?=
+ =?us-ascii?Q?NyayBix6EpMEj9dQNPu9TzJs/NCnmsGVCcgoz5e8/DA6mApdqG43up3SM7fj?=
+ =?us-ascii?Q?sbk8l0j2SYRLv2AHXk/zdmlH9mWjWLYh9/rS5FDjBTkmAuIAiDdCYeDIrK9s?=
+ =?us-ascii?Q?Q53bcf1QGOL9BmRyTb3TMH5wU5Cmr7g6trxCOilXHDsGT916u9h/EwQrFbvz?=
+ =?us-ascii?Q?tQAporSywPeicWGvgrb+r/s/usLHySl5yYtpjQ=3D=3D?=
+Content-Type: multipart/alternative;
+	boundary="_000_LOYP123MB33606EB28DA91308768F13A5A381ALOYP123MB3360GBRP_"
+MIME-Version: 1.0
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: LOYP123MB3360.GBRP123.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: fb7bf70c-b5fb-45a0-89d5-08dbf289e254
+X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Dec 2023 16:23:42.4187
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO4P123MB6529
+
+--_000_LOYP123MB33606EB28DA91308768F13A5A381ALOYP123MB3360GBRP_
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+From Pastor Francis Eze
+
+
+
+Attention; Mr. Mohammad Davey
+
+House Address: Flat B, 76 Cuthbert Road, West Virginia US
+
+Phone Number: +44 7361 596489
+
+
+
+Praise be to God Almighty. Hallelujah *
+
+
+
+My beloved brother in your previous email that you sent us that is where we=
+ found the details so once you make the payment of $285.00 you kindly send =
+us the payment receipt and your complete residential house address and your=
+ mobile phone number for easy communication.
+
+
+
+
+
+
+
+BANK NAME: UNITED BANK FOR AFRICA (UBA)
+
+BENEFICIARY NAME: PASCAL OKONKWO
+
+BENEFICIARY ADDRESS NO 22 FRANK OBI AYOBO LAGOS NIGERIA
+
+BENEFICIARY ACCOUNT NO. / IBAN: 2191482092
+
+SWIFT CODE: UNAFNGLA
+
+BANK ADDRESS: AYOBO ROAD LAGOS NIGERIA
+
+
+
+
+
+
+
+Once you make the payment you will send to us the payment receipt, for the =
+International Stamp Duty delivery fee.  We shall send you a tracking number=
+ that you will use to be tracking the package to know the day the package w=
+ill arrive your residential house address.
+
+
+
+Always believe in God because he is the truth and the light and whosoever t=
+hat believeth in Him shall have everlasting life. Praise the Lord. Halleluj=
+ah.
+
+
+
+Pastor Francis Eze
+
+Living Faith Church
+
+PHONE NUMBER +2347082069013
+
+
+
+
+
+________________________________
+From: Mohammad Davey <mohammaddavey00@gmail.com>
+Sent: Thursday, November 30, 2023 10:01 PM
+To: REV FRANCIS EZE <bteklem2023@outlook.com>
+Subject: Re: From Pastor Francis Eze
+
+Dear Pastor Francis Eze,
+
+Praise the Lord! I hope this message finds you well. Thank you for your kin=
+d words and encouragement. I truly believe in God's blessings and guidance =
+in my life.
+
+I have received the bank details you provided for the payment. I understand=
+ that the payment needs to be made to Pascal Okonkwo at the United Bank for=
+ Africa in Nigeria. However, I just wanted to clarify something. My residen=
+tial address is in West Virginia, United States, not the UK as mentioned in=
+ your previous message. I hope this does not cause any complications.
+
+I will proceed with making the payment of $285.00 as soon as possible throu=
+gh bank transfer. Once the transfer is completed, I will send you the payme=
+nt receipt as requested. I am eagerly looking forward to receiving the trac=
+king number for the package being delivered to my residential address.
+
+May God continue to bless you abundantly, Pastor Francis Eze. I appreciate =
+your prayers and support.
+
+In His service,
+
+Mohammad Davey
+
+--_000_LOYP123MB33606EB28DA91308768F13A5A381ALOYP123MB3360GBRP_
+Content-Type: text/html; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dus-ascii"=
+>
+<style type=3D"text/css" style=3D"display:none;"> P {margin-top:0;margin-bo=
+ttom:0;} </style>
+</head>
+<body dir=3D"ltr">
+<p class=3D"elementToProof" style=3D"margin-top: 0px; margin-bottom: 0px;">=
+<span style=3D"font-family: Verdana, &quot;sans-serif&quot;; font-size: 14p=
+t; color: rgb(102, 102, 102);"><i>From Pastor Francis Eze&nbsp;</i></span><=
+/p>
+<p style=3D"line-height: normal; margin: 0in 0in 0.0001pt;"><span style=3D"=
+font-family: Verdana, &quot;sans-serif&quot;; font-size: 14pt; color: rgb(1=
+02, 102, 102);"><i>&nbsp;</i></span></p>
+<p style=3D"margin-right: 0in; margin-left: 0in; background-color: white;">=
+<span style=3D"font-family: Verdana, &quot;sans-serif&quot;; font-size: 14p=
+t; color: rgb(102, 102, 102);"><i>Attention; Mr. Mohammad Davey&nbsp;</i></=
+span></p>
+<p style=3D"margin-right: 0in; margin-left: 0in; background-color: white;">=
+<span style=3D"font-family: Verdana, &quot;sans-serif&quot;; font-size: 14p=
+t; color: rgb(102, 102, 102);"><i>House Address: Flat B, 76 Cuthbert Road, =
+West Virginia US&nbsp;</i></span></p>
+<p style=3D"margin-right: 0in; margin-left: 0in; background-color: white;">=
+<span style=3D"font-family: Verdana, &quot;sans-serif&quot;; font-size: 14p=
+t; color: rgb(102, 102, 102);"><i>Phone Number: +44 7361 596489&nbsp;</i></=
+span></p>
+<p style=3D"line-height: normal; margin: 0in 0in 0.0001pt;"><span style=3D"=
+font-family: &quot;Helvetica Neue&quot;, &quot;serif&quot;; font-size: 10pt=
+; color: rgb(29, 34, 40);">&nbsp;</span></p>
+<p style=3D"line-height: normal; margin: 0in 0in 0.0001pt; background-color=
+: white;">
+<span style=3D"font-family: Verdana, &quot;sans-serif&quot;; font-size: 14p=
+t; color: rgb(102, 102, 102);"><i>Praise be to God Almighty. Hallelujah *&n=
+bsp;</i></span></p>
+<p style=3D"line-height: normal; margin: 0in 0in 0.0001pt; background-color=
+: white;">
+<span style=3D"font-family: Verdana, &quot;sans-serif&quot;; font-size: 14p=
+t; color: rgb(102, 102, 102);"><i>&nbsp;</i></span></p>
+<p style=3D"line-height: normal; margin: 0in 0in 0.0001pt; background-color=
+: white;">
+<span style=3D"font-family: Verdana, &quot;sans-serif&quot;; font-size: 14p=
+t; color: rgb(102, 102, 102);"><i>My beloved brother in your previous email=
+ that you sent us that is where we found the details so once you make the p=
+ayment of $285.00 you kindly send us the payment
+ receipt and your complete residential house address and your mobile phone =
+number for easy communication. &nbsp;</i></span></p>
+<p style=3D"line-height: normal; margin: 0in 0in 0.0001pt; background-color=
+: white;">
+<span style=3D"font-family: Verdana, &quot;sans-serif&quot;; font-size: 14p=
+t; color: rgb(102, 102, 102);"><i>&nbsp;</i></span></p>
+<p style=3D"line-height: normal; margin: 0in 0in 0.0001pt; background-color=
+: white;">
+<span style=3D"font-family: Verdana, &quot;sans-serif&quot;; font-size: 14p=
+t; color: rgb(102, 102, 102);"><i>&nbsp;</i></span></p>
+<p style=3D"line-height: normal; margin: 0in 0in 0.0001pt; background-color=
+: white;">
+<span style=3D"font-family: Verdana, &quot;sans-serif&quot;; font-size: 14p=
+t; color: rgb(102, 102, 102);"><i>&nbsp;</i></span></p>
+<p style=3D"line-height: normal; margin: 0in 0in 0.0001pt; background-color=
+: white;">
+<span style=3D"font-family: Verdana, &quot;sans-serif&quot;; font-size: 14p=
+t; color: red;"><b><i>BANK NAME: UNITED BANK FOR AFRICA (UBA)&nbsp;</i></b>=
+</span></p>
+<p style=3D"line-height: normal; margin: 0in 0in 0.0001pt; background-color=
+: white;">
+<span style=3D"font-family: Verdana, &quot;sans-serif&quot;; font-size: 14p=
+t; color: red;"><b><i>BENEFICIARY NAME: PASCAL OKONKWO&nbsp;</i></b></span>=
+</p>
+<p style=3D"line-height: normal; margin: 0in 0in 0.0001pt; background-color=
+: white;">
+<span style=3D"font-family: Verdana, &quot;sans-serif&quot;; font-size: 14p=
+t; color: red;"><b><i>BENEFICIARY ADDRESS NO 22 FRANK OBI AYOBO LAGOS NIGER=
+IA&nbsp; &nbsp;</i></b></span></p>
+<p style=3D"line-height: normal; margin: 0in 0in 0.0001pt; background-color=
+: white;">
+<span style=3D"font-family: Verdana, &quot;sans-serif&quot;; font-size: 18p=
+t; color: red;"><b><i><u>BENEFICIARY ACCOUNT NO. / IBAN: 2191482092&nbsp;</=
+u></i></b></span></p>
+<p style=3D"line-height: normal; margin: 0in 0in 0.0001pt; background-color=
+: white;">
+<span style=3D"font-family: Verdana, &quot;sans-serif&quot;; font-size: 14p=
+t; color: red;"><b><i>SWIFT CODE: UNAFNGLA &nbsp;</i></b></span></p>
+<p style=3D"line-height: normal; margin: 0in 0in 0.0001pt; background-color=
+: white;">
+<span style=3D"font-family: Verdana, &quot;sans-serif&quot;; font-size: 14p=
+t; color: red;"><b><i>BANK ADDRESS: AYOBO ROAD LAGOS NIGERIA&nbsp;</i></b><=
+/span></p>
+<p style=3D"line-height: normal; margin: 0in 0in 0.0001pt; background-color=
+: white;">
+<span style=3D"font-family: Verdana, &quot;sans-serif&quot;; font-size: 14p=
+t; color: rgb(102, 102, 102);"><i>&nbsp;</i></span></p>
+<p style=3D"line-height: normal; margin: 0in 0in 0.0001pt; background-color=
+: white;">
+<span style=3D"font-family: Verdana, &quot;sans-serif&quot;; font-size: 14p=
+t; color: rgb(102, 102, 102);"><i>&nbsp;&nbsp;</i></span></p>
+<p style=3D"line-height: normal; margin: 0in 0in 0.0001pt; background-color=
+: white;">
+<span style=3D"font-family: Verdana, &quot;sans-serif&quot;; font-size: 14p=
+t; color: rgb(102, 102, 102);"><i>&nbsp;</i></span></p>
+<p style=3D"line-height: normal; margin: 0in 0in 0.0001pt; background-color=
+: white;">
+<span style=3D"font-family: Verdana, &quot;sans-serif&quot;; font-size: 14p=
+t; color: rgb(102, 102, 102);"><i>Once you make the payment you will send t=
+o us the payment receipt, for the International Stamp Duty delivery fee. &n=
+bsp;We shall send you a tracking number that you
+ will use to be tracking the package to know the day the package will arriv=
+e your residential house address. &nbsp;</i></span></p>
+<p style=3D"line-height: normal; margin: 0in 0in 0.0001pt; background-color=
+: white;">
+<span style=3D"font-family: Verdana, &quot;sans-serif&quot;; font-size: 14p=
+t; color: rgb(102, 102, 102);"><i>&nbsp;</i></span></p>
+<p style=3D"line-height: normal; margin: 0in 0in 0.0001pt; background-color=
+: white;">
+<span style=3D"font-family: Verdana, &quot;sans-serif&quot;; font-size: 14p=
+t; color: rgb(102, 102, 102);"><i>Always believe in God because he is the t=
+ruth and the light and whosoever that believeth in Him shall have everlasti=
+ng life. Praise the Lord. Hallelujah. &nbsp;</i></span></p>
+<p style=3D"line-height: normal; margin: 0in 0in 0.0001pt; background-color=
+: white;">
+<span style=3D"font-family: Verdana, &quot;sans-serif&quot;; font-size: 14p=
+t; color: rgb(102, 102, 102);"><i>&nbsp;</i></span></p>
+<p style=3D"line-height: normal; margin: 0in 0in 0.0001pt; background-color=
+: white;">
+<span style=3D"font-family: Verdana, &quot;sans-serif&quot;; font-size: 14p=
+t; color: rgb(102, 102, 102);"><i>Pastor Francis Eze
+</i></span><span style=3D"font-family: &quot;Helvetica Neue&quot;, &quot;se=
+rif&quot;; font-size: 10pt; color: rgb(29, 34, 40);">&nbsp;</span></p>
+<p style=3D"line-height: normal; margin: 0in 0in 0.0001pt; background-color=
+: white;">
+<span style=3D"font-family: Verdana, &quot;sans-serif&quot;; font-size: 14p=
+t; color: rgb(102, 102, 102);"><i>Living Faith Church&nbsp;</i></span></p>
+<p style=3D"line-height: normal; margin: 0in 0in 0.0001pt; background-color=
+: white;">
+<span style=3D"font-family: Verdana, &quot;sans-serif&quot;; font-size: 14p=
+t; color: rgb(102, 102, 102);"><i>PHONE NUMBER +2347082069013&nbsp;</i></sp=
+an></p>
+<p style=3D"margin: 0in 0in 10pt;"><span style=3D"font-family: &quot;Times =
+New Roman&quot;, &quot;serif&quot;; font-size: 12pt; color: rgb(0, 0, 0);">=
+&nbsp;</span></p>
+<p style=3D"margin: 0in 0in 10pt;" class=3D"elementToProof"><span style=3D"=
+font-family: &quot;Times New Roman&quot;, &quot;serif&quot;; font-size: 12p=
+t; color: rgb(0, 0, 0);">&nbsp;</span></p>
+<div id=3D"appendonsend"></div>
+<hr style=3D"display:inline-block;width:98%" tabindex=3D"-1">
+<div id=3D"divRplyFwdMsg" dir=3D"ltr"><font face=3D"Calibri, sans-serif" st=
+yle=3D"font-size:11pt" color=3D"#000000"><b>From:</b> Mohammad Davey &lt;mo=
+hammaddavey00@gmail.com&gt;<br>
+<b>Sent:</b> Thursday, November 30, 2023 10:01 PM<br>
+<b>To:</b> REV FRANCIS EZE &lt;bteklem2023@outlook.com&gt;<br>
+<b>Subject:</b> Re: From Pastor Francis Eze</font>
+<div>&nbsp;</div>
+</div>
+<div class=3D"BodyFragment"><font size=3D"2"><span style=3D"font-size:11pt;=
+">
+<div class=3D"PlainText">Dear Pastor Francis Eze,<br>
+<br>
+Praise the Lord! I hope this message finds you well. Thank you for your kin=
+d words and encouragement. I truly believe in God's blessings and guidance =
+in my life.<br>
+<br>
+I have received the bank details you provided for the payment. I understand=
+ that the payment needs to be made to Pascal Okonkwo at the United Bank for=
+ Africa in Nigeria. However, I just wanted to clarify something. My residen=
+tial address is in West Virginia,
+ United States, not the UK as mentioned in your previous message. I hope th=
+is does not cause any complications.<br>
+<br>
+I will proceed with making the payment of $285.00 as soon as possible throu=
+gh bank transfer. Once the transfer is completed, I will send you the payme=
+nt receipt as requested. I am eagerly looking forward to receiving the trac=
+king number for the package being
+ delivered to my residential address.<br>
+<br>
+May God continue to bless you abundantly, Pastor Francis Eze. I appreciate =
+your prayers and support.<br>
+<br>
+In His service,<br>
+<br>
+Mohammad Davey<br>
+</div>
+</span></font></div>
+</body>
+</html>
+
+--_000_LOYP123MB33606EB28DA91308768F13A5A381ALOYP123MB3360GBRP_--

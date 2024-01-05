@@ -1,0 +1,160 @@
+Delivered-To: carmelo.emmerich9@gmail.com
+Received: by 2002:ac8:66ca:0:b0:423:f0d1:9e99 with SMTP id m10csp1037578qtp;
+        Fri, 1 Dec 2023 07:49:33 -0800 (PST)
+X-Received: by 2002:a17:902:e843:b0:1cf:d24c:7b6c with SMTP id t3-20020a170902e84300b001cfd24c7b6cmr17636511plg.59.1701445773471;
+        Fri, 01 Dec 2023 07:49:33 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1701445773; cv=none;
+        d=google.com; s=arc-20160816;
+        b=PyYL8q2lgwiZuMJi2igZi25eAqpaiuX6Z1D9t+Y2iDbpCO6dn9mOhhC/lkJ6bpkCFX
+         qS2ngA9qqMOrn+f6p9ORH4ODegmM1NA2uhDY+wubpxq84mZ99nrVTX6+kvj6FtXHHp7m
+         6kgWf4MeMqSf0/2PfyOXAbDKimx7FXQKJGIJ5ngaKZSYjOThq4XYaFs0uCPpbDjaktY3
+         3w9Mnt50lm7xoOFEzBIH0XMZRqBOxMmHNK7NRIA+vXm7Q4pFNr9Gkg6JkxkiCbWQ2bYN
+         BnqaVpRlrBK7jsoUIJKRnIuaxbQky1RTtvH6dffwWxh/nYKR2QNHxCVj51i56mK6l1U3
+         Ul2Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=7D+XcFeht5ByWajBimUSp+3EM1RFMXjZk+r8sEBVR4c=;
+        fh=x/plKOEziQ84ZX73cgwn9zkabqWD4eOpr+77OnliuD4=;
+        b=fFDjdZvdA+wWzXGBZzlGLXyYJpnbWrFSfiGWJADrzzHz59eV2q7c34LtMPSHyY2t12
+         yX7u/0xKk3HOQMKXS9reiYU1YO9CHhfkOM8BP8b67zzf+BuJuXHAEw8bmy7BoUoJRDSD
+         YvzMJDISvn9lqKqZLrEnsJsrWVOpu+FkihvGcV1PHWJiRxX8JJmPit6LwompFRh2c44g
+         ncToUCvNZNP2VQnnvCr6uvO0yTKV8KtYNRmC/wN0BY9jOIp6VEJmT+7onTC0g1geaRed
+         hhYK+Tq7OcRMWvswamyd8MPfsx5our5+Fx36mxRQewUyFw0235sMBhqg3+Ab2ZQRbpz+
+         BfMQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=X57zVbeN;
+       spf=pass (google.com: domain of info.ubabank.bank2020@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=info.ubabank.bank2020@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <info.ubabank.bank2020@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id h18-20020a170902eed200b001cfc2d3d06dsor881380plb.7.2023.12.01.07.49.33
+        for <carmelo.emmerich9@gmail.com>
+        (Google Transport Security);
+        Fri, 01 Dec 2023 07:49:33 -0800 (PST)
+Received-SPF: pass (google.com: domain of info.ubabank.bank2020@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=X57zVbeN;
+       spf=pass (google.com: domain of info.ubabank.bank2020@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=info.ubabank.bank2020@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1701445773; x=1702050573; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=7D+XcFeht5ByWajBimUSp+3EM1RFMXjZk+r8sEBVR4c=;
+        b=X57zVbeNSiDH90VJNKojn+F6o6LGTeG25TOT1T5NAFYcQkP2nA2Pjc29qBx5F/nWmJ
+         PwA3l9b7OFCo1Y52b+EehpfGXJYb7KSZjHlP3SzpHMtExDlUsLoduTFC2fH/l8b7ZEbQ
+         jW+UuvvN4yArWGghcE6jITdydedo49o8PTKPI6YvScp2ER/0YMBmm0vvEuSO9g+xetiq
+         Rw9goAgUoDrpyxf79bcJ8qcarFGsOjxPmxNrC9SAL9yLt8mvggZM8UFqXgPDXkY7VEMk
+         FdFubkabZglWd1hOwW0RaLGOZ/3BN5TR4HtcwZOi/LGnHnhcQUV00MCxj3ORJe0ah7fL
+         HBXg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1701445773; x=1702050573;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=7D+XcFeht5ByWajBimUSp+3EM1RFMXjZk+r8sEBVR4c=;
+        b=KnWN/m9gA2QVzZikq/Vc0K5HaUzMl7BAwckc5Krjy18dBap6qzvThcY4KFqbOeItRb
+         JCjIeXJ19/gCjFoXBcbOvHWQGBZQAHCS2Gb8it3oJjARkAVxix4hICsbm5ufySfPgR26
+         bzZWDWhFSFmuDt1+Ugjr2zxQ4O/ijnOX6ha7faIkEYRluf7X1QQ9ThoVeShg+6YCLaDs
+         zq+gsYK5XrX0lfN9X42vwsIh0JzJC+clxgsmQzZ10zS5/VfWvVn9oeHCANBGd2Yp1h67
+         E4J1nVyy9XHgCkDzIbbgU4koZr8fOP7Ijt6yIcWb70jDY1qj5AOslWsbQy/GrmpbaIQ8
+         59Vw==
+X-Gm-Message-State: AOJu0YzWs56eE8IoRuylB7Z35QFcyYeNNWwj4o25iAhiYGm9Q+9ZwHQv
+	3pgyvZPiVQdeX/dzDRgVzj9y3gfRG5s/U81QYq9ShhoCKq0=
+X-Google-Smtp-Source: AGHT+IGJwrWzeokCjxbZWMspsEMebz+zcEPv55diMMb6DLCddS5u7Vv2LE3NPuTcfK0kVin1X7hfb112bPDcmf9oscY=
+X-Received: by 2002:a17:902:da84:b0:1cf:e9c5:7382 with SMTP id
+ j4-20020a170902da8400b001cfe9c57382mr15609017plx.68.1701445772669; Fri, 01
+ Dec 2023 07:49:32 -0800 (PST)
+MIME-Version: 1.0
+References: <6569ee29.050a0220.23d90.6e0c@mx.google.com>
+In-Reply-To: <6569ee29.050a0220.23d90.6e0c@mx.google.com>
+From: PHILLIP ODOUZA <info.ubabank.bank2020@gmail.com>
+Date: Fri, 1 Dec 2023 16:49:21 +0100
+Message-ID: <CALEDdbhYQ+iCL3Cus33G7_vbVvTAVhtZHb62OH0k_Y7BODfwrQ@mail.gmail.com>
+Subject: Re: UNITED BANK FOR AFRICA
+To: Carmelo Emmerich <carmelo.emmerich9@gmail.com>
+Content-Type: multipart/alternative; boundary="000000000000e2773d060b74b609"
+
+--000000000000e2773d060b74b609
+Content-Type: text/plain; charset="UTF-8"
+
+Here are the account details as you requested:
+
+Bank Name:Wise Europe S.A
+Account holder: Renaud Miko
+Sort code: 23-08-01
+Account number: 90250685
+IBAN: GB77 TRWI 2308 0190 2506 85
+Wise's address: 56 Shoreditch High Street
+London
+E1 6JJ
+United Kingdom
+
+This is a British pounds account requested.Please make the payment today.
+
+On Fri, Dec 1, 2023 at 3:31 PM Carmelo Emmerich <carmelo.emmerich9@gmail.com>
+wrote:
+
+> Dear Philip,
+>
+> Thank you for your prompt response, and I appreciate your understanding of
+> my situation. I must admit, I am not very familiar with Bitcoin wallets and
+> how they work. Is there any way we can proceed with the payment in British
+> pounds instead? If it would cost more than 500 pounds, I understand that it
+> might be a bit of a challenge for me, but I am willing to try my best.
+>
+> Please let me know if making the payment in British pounds is acceptable.
+> If so, I kindly request you to provide me with the necessary bank details
+> to initiate a bank-to-bank transfer in pounds.
+>
+> Thank you for your patience and cooperation.
+>
+> Best regards,
+> Carmelo Emmerich
+>
+
+--000000000000e2773d060b74b609
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div><div style=3D"border-color:rgb(255,255,255)" dir=3D"auto">Here are the=
+ account details as you requested:</div><div style=3D"border-color:rgb(255,=
+255,255)" dir=3D"auto"><br></div><div style=3D"border-color:rgb(255,255,255=
+)" dir=3D"auto">Bank Name:Wise Europe S.A</div><div style=3D"border-color:r=
+gb(255,255,255)" dir=3D"auto">Account holder: Renaud Miko</div><div style=
+=3D"border-color:rgb(255,255,255)" dir=3D"auto">Sort code: 23-08-01</div><d=
+iv style=3D"border-color:rgb(255,255,255)" dir=3D"auto">Account number: 902=
+50685</div><div style=3D"border-color:rgb(255,255,255)" dir=3D"auto">IBAN: =
+GB77 TRWI 2308 0190 2506 85</div><div style=3D"border-color:rgb(255,255,255=
+)" dir=3D"auto">Wise&#39;s address: 56 Shoreditch High Street</div><div sty=
+le=3D"border-color:rgb(255,255,255)" dir=3D"auto">London</div><div style=3D=
+"border-color:rgb(255,255,255)" dir=3D"auto">E1 6JJ</div><div style=3D"bord=
+er-color:rgb(255,255,255)" dir=3D"auto">United Kingdom</div><div style=3D"b=
+order-color:rgb(255,255,255)" dir=3D"auto"><br></div><div style=3D"border-c=
+olor:rgb(255,255,255)" dir=3D"auto">This is a British pounds account reques=
+ted.Please make the payment today.</div></div><div><br><div class=3D"gmail_=
+quote"><div dir=3D"ltr" class=3D"gmail_attr">On Fri, Dec 1, 2023 at 3:31 PM=
+ Carmelo Emmerich &lt;<a href=3D"mailto:carmelo.emmerich9@gmail.com">carmel=
+o.emmerich9@gmail.com</a>&gt; wrote:<br></div><blockquote class=3D"gmail_qu=
+ote" style=3D"margin:0px 0px 0px 0.8ex;border-left-width:1px;border-left-st=
+yle:solid;padding-left:1ex;border-left-color:rgb(204,204,204)">Dear Philip,=
+<br>
+<br>
+Thank you for your prompt response, and I appreciate your understanding of =
+my situation. I must admit, I am not very familiar with Bitcoin wallets and=
+ how they work. Is there any way we can proceed with the payment in British=
+ pounds instead? If it would cost more than 500 pounds, I understand that i=
+t might be a bit of a challenge for me, but I am willing to try my best.<br=
+>
+<br>
+Please let me know if making the payment in British pounds is acceptable. I=
+f so, I kindly request you to provide me with the necessary bank details to=
+ initiate a bank-to-bank transfer in pounds.<br>
+<br>
+Thank you for your patience and cooperation.<br>
+<br>
+Best regards,<br>
+Carmelo Emmerich<br>
+</blockquote></div></div>
+
+--000000000000e2773d060b74b609--

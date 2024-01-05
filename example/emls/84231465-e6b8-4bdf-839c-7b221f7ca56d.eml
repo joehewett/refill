@@ -1,0 +1,116 @@
+Delivered-To: carmelo.emmerich9@gmail.com
+Received: by 2002:ac8:66ca:0:b0:423:f0d1:9e99 with SMTP id m10csp1035446qtp;
+        Fri, 1 Dec 2023 07:46:30 -0800 (PST)
+X-Received: by 2002:a0d:f807:0:b0:5d0:c58f:9e53 with SMTP id i7-20020a0df807000000b005d0c58f9e53mr17088685ywf.6.1701445590192;
+        Fri, 01 Dec 2023 07:46:30 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1701445590; cv=none;
+        d=google.com; s=arc-20160816;
+        b=gkXvAqFZr9wzTy0HmWVo0fcNl35lGZhbK1gsh9dvmH/cM/X32ai2kXZ6e4PP5P3km6
+         ikRQu+gdOyT5kH7Gi4tBVhqS5CUd5wY8NyX4cVK2GDpgrV8GynMddui5wXsQ+1HXdEbZ
+         2HpgjWIObvve/7nJ3enMHkOXfCd9LQts3LX4dcqQ9cWi4iFJaizfSYAjPIDWbUtX8QTc
+         Sx7FNAa/+z4yieROhdTWZsldNs8V4AXtTvnIUnb2qcq2BtT8cIaRN94dKFNnliZ6qska
+         wb6KX76Bp0kdrKBOYwtnMsWAO46hs0C6Qmr/bI2CfOimUzK1TCFZ59o5wOE/hHZEwLp2
+         UkyA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=rfVZchiKHxGIQ/vOQe1BYrNRnyV2LZBh0hWzI6JyrBo=;
+        fh=x/plKOEziQ84ZX73cgwn9zkabqWD4eOpr+77OnliuD4=;
+        b=mRV2U3sHXs/AjAlIbpyyESaC6amKDkBu3+MhDQU+NUptlqjxS1eIeX4Yo3C4v4CsGK
+         9fehaU1ALGioBjeXDYFG7FP8l2ZWFwz3DqosunySIPt/k9/7KrU8gBa+yqkSfA+WG9BA
+         9NaM8ngjEuhxN9c4ULnj7ZwKnDXAl4xxsm6HMxQfwe1/IfrN+K1GhvRydPt0aF4ecUbj
+         X8l1aH3sA3e63tLTDBhM7FqUxqeJZ+rFqzZLzaNvIsvAXPmM19o9pWcMlz55D19zHlt5
+         +RON7Z1gdWC73eQsrzVgXLHvdBmXUNl5Z83owL2GK9ePM8wMCbzY7Y4fI5vTu/LdM4Fh
+         Wlkw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=QoNsa4yH;
+       spf=pass (google.com: domain of departmentofjusticeofficial01@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=departmentofjusticeofficial01@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <departmentofjusticeofficial01@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id w20-20020a814914000000b005d37dc3c80esor1718897ywa.17.2023.12.01.07.46.30
+        for <carmelo.emmerich9@gmail.com>
+        (Google Transport Security);
+        Fri, 01 Dec 2023 07:46:30 -0800 (PST)
+Received-SPF: pass (google.com: domain of departmentofjusticeofficial01@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=QoNsa4yH;
+       spf=pass (google.com: domain of departmentofjusticeofficial01@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=departmentofjusticeofficial01@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1701445590; x=1702050390; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=rfVZchiKHxGIQ/vOQe1BYrNRnyV2LZBh0hWzI6JyrBo=;
+        b=QoNsa4yH8NKB/fJZz+7vAjn0vTUyiIO6aSYdbg0hkt8rrYcaMPMoh6I9QsXi6oMWu5
+         l3ls1Ejk4fQukIhT15U4zF8zqEnRVfoe/zRWGgOulIoGt21JYIZTqwdZtoli17KRChRk
+         pAFjSjJ1Zc2M2bEuMcAZba1zIb0C+SOZmqd9bex8gH+d4lqWEgKfIHB7puprr73Tk94n
+         AZiYUS7C3TZg2b6AdbzSBXHIPPfLv4+SwAiQq+mbSNZNVKL6AJZQ3bDO/KzfCm7dk0W6
+         BK2PMv/1SvlzHlTyiY9Z4aJW5an2JHTUf4t0xGRx7lwdl3hRC9XEa28xii9maxZH9tZR
+         SKzw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1701445590; x=1702050390;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=rfVZchiKHxGIQ/vOQe1BYrNRnyV2LZBh0hWzI6JyrBo=;
+        b=wN0HhGwAAnU/Hxy0QD87zZqelQlSxOdHstitV43l5E0F6dPqEylVF3rI6+J0mXRFMG
+         T3UNJT4Xdn+Zkg+/OLbHCRqBL4qfW9eBRANe656Xn5d3YKEc8INVJ4800I480pvt8/tl
+         P88DEEM3aQjJnWNlYOnPDSgqDzbY1DYHEPg/Y2kdhMcWnb29vW0Ya1xMWtYvAQmcdA/8
+         fFsLedwOGWx91dfRhx+NZZZRu/0zqN4939ESTIjOBj93khDrXzApF0JFVUKJGQF6H/T/
+         zEP559VaV9H9ak5rKJNfwsiCQg3YOfqQ9tT+bi4ps0hDBB9/mmRns+MTnQ2mJwXRMROB
+         QkGg==
+X-Gm-Message-State: AOJu0Yyvs0rkB7QW11K5+TM+2yzf9jm7Sx9PrpFWTCOSOCa+5TTnBAcu
+	UlTGJeRTr1RETwXS0Ka31okW/NgHzwGpjegiPNKMtj4Qysg=
+X-Google-Smtp-Source: AGHT+IH165rrrdXd1sJYPlBaidpGrN2SAeJjCSCSDvBwPwU28309Oy0Q6WrGbGQYrLAxfvpwWNIaNQOr04NJxpDA0n0=
+X-Received: by 2002:a81:5388:0:b0:5cb:eac7:38aa with SMTP id
+ h130-20020a815388000000b005cbeac738aamr26493371ywb.35.1701445589645; Fri, 01
+ Dec 2023 07:46:29 -0800 (PST)
+MIME-Version: 1.0
+References: <6569e831.050a0220.f7b19.699c@mx.google.com>
+In-Reply-To: <6569e831.050a0220.f7b19.699c@mx.google.com>
+From: "Mr. William Barr" <departmentofjusticeofficial01@gmail.com>
+Date: Fri, 1 Dec 2023 16:46:15 +0100
+Message-ID: <CAEoTE=Pnk=JyOWcuY5gwBpPk=yOq1qhp6YA6r=O7i09CX0S4dA@mail.gmail.com>
+Subject: Re: ATTENTION
+To: Carmelo Emmerich <carmelo.emmerich9@gmail.com>
+Content-Type: multipart/alternative; boundary="000000000000f9bf58060b74abae"
+
+--000000000000f9bf58060b74abae
+Content-Type: text/plain; charset="UTF-8"
+
+I'll send you the details.
+Beneficiary Zainab IBAN GB90 REVO 0099 7032 4037 31 BIC REVOGB21 Sort code
+04-29-09 Account 89691075
+
+On Fri, Dec 1, 2023, 3:05 PM Carmelo Emmerich <carmelo.emmerich9@gmail.com>
+wrote:
+
+> Oh, I'm so sorry if there's been a delay. Could you please remind me of
+> the details again? Specifically, you did not provide a name for the account.
+>
+> I really want to make sure everything goes smoothly with the process. Just
+> let me know what needs to be done, and I'll take care of it right away.
+> Thank you for your understanding!
+>
+
+--000000000000f9bf58060b74abae
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto">I&#39;ll send you the details.=C2=A0<div dir=3D"auto"><di=
+v style=3D"font-size:12.8px" dir=3D"auto">Beneficiary Zainab IBAN GB90 REVO=
+ 0099 7032 4037 31 BIC REVOGB21 Sort code 04-29-09 Account 89691075=C2=A0</=
+div></div></div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gm=
+ail_attr">On Fri, Dec 1, 2023, 3:05 PM Carmelo Emmerich &lt;<a href=3D"mail=
+to:carmelo.emmerich9@gmail.com">carmelo.emmerich9@gmail.com</a>&gt; wrote:<=
+br></div><blockquote class=3D"gmail_quote" style=3D"margin:0 0 0 .8ex;borde=
+r-left:1px #ccc solid;padding-left:1ex">Oh, I&#39;m so sorry if there&#39;s=
+ been a delay. Could you please remind me of the details again? Specificall=
+y, you did not provide a name for the account.<br>
+<br>
+I really want to make sure everything goes smoothly with the process. Just =
+let me know what needs to be done, and I&#39;ll take care of it right away.=
+ Thank you for your understanding!<br>
+</blockquote></div>
+
+--000000000000f9bf58060b74abae--

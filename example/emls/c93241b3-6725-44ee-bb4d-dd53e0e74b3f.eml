@@ -1,0 +1,180 @@
+Delivered-To: vanessa.kiehn5@gmail.com
+Received: by 2002:a59:910d:0:b0:434:ef24:60a8 with SMTP id r13csp818112vqg;
+        Fri, 1 Dec 2023 06:17:21 -0800 (PST)
+X-Received: by 2002:aca:1709:0:b0:3b8:7f22:f5ec with SMTP id j9-20020aca1709000000b003b87f22f5ecmr2753553oii.54.1701440240834;
+        Fri, 01 Dec 2023 06:17:20 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1701440240; cv=none;
+        d=google.com; s=arc-20160816;
+        b=eyvWDFrVhziOEg6p4M/9rWyttryPoFeFVunvgwtuarVrs2OqRx+16odykuph6yWseI
+         YPRKt1cP/qEKlaPqlug1yZXZdqYCtWGXvK/veLOeKSubINAfV9l7DldNtqPzksfF0B6c
+         bWjIuXa1XUjEhJcHhg6ZYBe7+JyYhK3I/TbsnP/0SWyylS5cDDnprVse8js23vP18gMy
+         o1t6ttsQ7GRIbP9szH0lbGSqYxmhwGxsiviAkyfLx8vz0+n+zDNr2ihGCacCp2ey3P0q
+         8h8yehWQxulVENBt5J8BCju+haw3/eE2iz3K8ahBN9HIXJ+eQIFnt7USyZigAZxs3eg+
+         tFrA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=mUafxFPuTyWH2pGwBb1xW8JJyvl2X0IFgPnNIOCrmRQ=;
+        fh=BPruGXeMZoUN46KVmA//2zVA2Ni4lADuubdkzfOb4FA=;
+        b=ntWQvhTqN+qpWJti0u0gia9FWkfrSG76Ma/3UgIGxmKe7RmUGxarPrySpILs+lK86h
+         FFl8W4qLpVi3SCzZg6h33ZBAOpWCuR7Kn3oiXbYIQeI15XQHDT+XEITBgmYe31hodT96
+         qW3e6GBBegVlEV4S2na9frJM8ucwPKkr658rvMx5JBCKPvz28TJ/ic9QCP6mkGijCl9D
+         rCnr6t54wuqwmMjyka+pQSkU91Z11PEAkRw6N8eToRMhi3p71NtNJldim9MrAHBTOEhV
+         qabX2eFW0KCxHkHpEwje3LL70FvEEERjiEp/4elLfPN85X1rEtF65wgoQB6rZ4cSwrNB
+         IaxA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=BENV0tPM;
+       spf=pass (google.com: domain of boarddept0@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=boarddept0@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <boarddept0@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id fg19-20020a056808641300b003b89266c0fesor1092579oib.1.2023.12.01.06.17.20
+        for <vanessa.kiehn5@gmail.com>
+        (Google Transport Security);
+        Fri, 01 Dec 2023 06:17:20 -0800 (PST)
+Received-SPF: pass (google.com: domain of boarddept0@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=BENV0tPM;
+       spf=pass (google.com: domain of boarddept0@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=boarddept0@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1701440240; x=1702045040; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=mUafxFPuTyWH2pGwBb1xW8JJyvl2X0IFgPnNIOCrmRQ=;
+        b=BENV0tPMH1bokCbiknskW9ROjnVSoDrGsBaE0a0M4BYwKMqsqGWs09EWDb2OJxxHdm
+         kwZ2YhdAlU+B0amaAqSw34Sk9AHuY+R45+Pa/BgXZWK4oSlLvzpBaDyW6TQQsJhKn8fG
+         4+MPHfjCNloZtvbvp2u3/YjDwCKtBl3vqm595PNdsLkjtnbtKzWGcJLWM6FOrE1OvvZg
+         YZtHZU1GoYge3CVp9VMn2JIhqKt9Ip8JFZRVfFvraAZ53NRDuNXwd+s+Zr84ILCkr0Vy
+         qZ/BDKXB61ENBZ1AkffNGwpRCCcgckxTYcqYqVwO50gubVq/ImtCJhHrhKyrgpJt8zgj
+         J0ug==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1701440240; x=1702045040;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=mUafxFPuTyWH2pGwBb1xW8JJyvl2X0IFgPnNIOCrmRQ=;
+        b=gSpAB9p7p6JnVxiWK+zWeo3epFnprXRS/XkWR8/tVOMPJZ/2C0zQ3ts6jD7jQZACfF
+         mf3NrKCp/SlGyXjvl2q1O8zY4ZPU0HFlyjuIyi9WNmR4JmuWqZk7aYeqshOas1tAUhNU
+         Wi+bARXwG0lRdNhuXhIKXIRmOgteRxCD4l2svlJWw0rUVBkJVZOPZOOSzvZpMEF41bk2
+         EuVxC93Zbnkwc9M0xU1o6cFNsRIrRD2Eh3EkiWVtG5rKC9idt0qBVCmDMwfLQI9k29VV
+         M7/xrbMLgIZm/wglvWuJoxZYcagwlTVqik/50xt7BCJdnd1Nqoa6wvCXF5K3HHIGd2+q
+         0w1Q==
+X-Gm-Message-State: AOJu0YxqOdq5G38avYXo2/MReNjYEZo7Su+gdBkvAZjEiVe2eb1+rZVt
+	eBHu+eYKmaRQyeUHK8GarQXUq4WHXIewoLecZjhWRmu0o6vwwg==
+X-Google-Smtp-Source: AGHT+IE8sYr/fogS7PxOTUntS6mT5tcgJaqvpy488e82hF5ZhSuTNy7KdJb0D04+vxX2Thv1UFIjzTIJZolHT61NWCY=
+X-Received: by 2002:a05:6808:211a:b0:3b8:5bea:861a with SMTP id
+ r26-20020a056808211a00b003b85bea861amr23970385oiw.3.1701440240147; Fri, 01
+ Dec 2023 06:17:20 -0800 (PST)
+MIME-Version: 1.0
+References: <6569e32c.050a0220.110b0.7027@mx.google.com>
+In-Reply-To: <6569e32c.050a0220.110b0.7027@mx.google.com>
+From: Office Dept <boarddept0@gmail.com>
+Date: Fri, 1 Dec 2023 15:17:05 +0100
+Message-ID: <CALi=svG50fM-gNpdsTb_J+30PYgDYWdXYXgzY7NFOrjwYFF5jg@mail.gmail.com>
+Subject: Re: Atten: Vanessa Kiehn.
+To: Vanessa Kiehn <vanessa.kiehn5@gmail.com>
+Content-Type: multipart/alternative; boundary="0000000000001ee043060b736d9c"
+
+--0000000000001ee043060b736d9c
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+*Atten: Vanessa Kiehn*
+
+*Feel free to complete the payment. No other instruction is needed. Again
+we have your account details already.*
+
+
+
+
+
+*STEEVEN WEISSIBAN: FR2183 3000 0100 0158 6834 592BIC PRNSFRP1*
+*Now we look forward for your payment receipt.*
+
+
+
+*RegardsAlbert Fenards*
+*3 Whitehall Court London Sw1a2e*
+
+On Fri, 1 Dec, 2023, 2:44 pm Vanessa Kiehn, <vanessa.kiehn5@gmail.com>
+wrote:
+
+> Dear Mr. Fenards,
+>
+> Thank you for your prompt response. I appreciate your clarification and
+> providing me with the account details of Steeven Weiss. I will proceed wi=
+th
+> the transfer of the payment as instructed.
+>
+> I have taken note of the provided IBAN and BIC codes for the account:
+> IBAN: FR2183 3000 0100 0158 6834 592
+> BIC: PRNSFRP1
+>
+> Just to confirm, should I transfer the payment of =E2=82=AC525 to this ac=
+count?
+> Please let me know if there are any specific instructions or references
+> that I need to include during the transfer.
+>
+> Once the payment is confirmed, I eagerly anticipate the immediate transfe=
+r
+> of the total $13.5 million to my account. I have provided you with my ban=
+k
+> account details in our previous correspondence, but if you require them
+> again, please let me know.
+>
+> Thank you for your continued support and assistance. I look forward to
+> hearing from you soon.
+>
+> Warm regards,
+> Vanessa Kiehn
+>
+
+--0000000000001ee043060b736d9c
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto"><div style=3D"font-family:sans-serif;font-size:12.8px" di=
+r=3D"auto"><b>Atten: Vanessa Kiehn</b></div><div style=3D"font-family:sans-=
+serif;font-size:12.8px" dir=3D"auto"><b><br></b></div><div style=3D"font-fa=
+mily:sans-serif;font-size:12.8px" dir=3D"auto"><b>Feel free to complete the=
+ payment. No other instruction is needed. Again we have your account detail=
+s already.</b></div><div style=3D"font-family:sans-serif;font-size:12.8px" =
+dir=3D"auto"><br></div><b style=3D"font-family:sans-serif;font-size:12.8px"=
+>STEEVEN WEISS<br>IBAN: FR2183 3000 0100 0158 6834 592<br>BIC PRNSFRP1<br><=
+br></b><div style=3D"font-family:sans-serif;font-size:12.8px" dir=3D"auto">=
+<b>Now we look forward for your payment receipt.</b></div><div style=3D"fon=
+t-family:sans-serif;font-size:12.8px" dir=3D"auto"><b><br></b></div><b styl=
+e=3D"font-family:sans-serif;font-size:12.8px">Regards<br>Albert Fenards<br>=
+</b><div style=3D"font-family:sans-serif;font-size:12.8px" dir=3D"auto"><b>=
+3 Whitehall Court London Sw1a2e</b></div></div><br><div class=3D"gmail_quot=
+e"><div dir=3D"ltr" class=3D"gmail_attr">On Fri, 1 Dec, 2023, 2:44 pm Vanes=
+sa Kiehn, &lt;<a href=3D"mailto:vanessa.kiehn5@gmail.com">vanessa.kiehn5@gm=
+ail.com</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"=
+margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">Dear Mr. Fen=
+ards,<br>
+<br>
+Thank you for your prompt response. I appreciate your clarification and pro=
+viding me with the account details of Steeven Weiss. I will proceed with th=
+e transfer of the payment as instructed.<br>
+<br>
+I have taken note of the provided IBAN and BIC codes for the account: <br>
+IBAN: FR2183 3000 0100 0158 6834 592 <br>
+BIC: PRNSFRP1<br>
+<br>
+Just to confirm, should I transfer the payment of =E2=82=AC525 to this acco=
+unt? Please let me know if there are any specific instructions or reference=
+s that I need to include during the transfer.<br>
+<br>
+Once the payment is confirmed, I eagerly anticipate the immediate transfer =
+of the total $13.5 million to my account. I have provided you with my bank =
+account details in our previous correspondence, but if you require them aga=
+in, please let me know.<br>
+<br>
+Thank you for your continued support and assistance. I look forward to hear=
+ing from you soon.<br>
+<br>
+Warm regards,<br>
+Vanessa Kiehn<br>
+</blockquote></div>
+
+--0000000000001ee043060b736d9c--

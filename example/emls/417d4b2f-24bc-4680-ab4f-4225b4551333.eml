@@ -1,0 +1,203 @@
+Delivered-To: vanessa.kiehn5@gmail.com
+Received: by 2002:a59:910d:0:b0:434:ef24:60a8 with SMTP id r13csp830750vqg;
+        Fri, 1 Dec 2023 06:33:17 -0800 (PST)
+X-Received: by 2002:ac8:1016:0:b0:423:a9a5:da99 with SMTP id z22-20020ac81016000000b00423a9a5da99mr23140839qti.13.1701441197199;
+        Fri, 01 Dec 2023 06:33:17 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1701441197; cv=none;
+        d=google.com; s=arc-20160816;
+        b=Z3mDPDq8DmIstCXxMsIaTlDjP6p2dO1Qq2PlzrsqiRCKl5xorGCKPCDk+1HIeHC3pp
+         SD06CFyFXNkE5LdQ8nLZYzxe/EixY1oI+PKrrZwlgGxQPHLJVSr1JHk9/xoZ5w2eCfCi
+         jvbMJ1d8OPQ1NECaikqGIseeri+pVaflKTjt7gQPH1vJhWdsmqAbsvXj/m2oxwQ2z3K0
+         pGL38IQpL6sAW0WpNZGtuAKM6irRLmd4JZsL/eHci9ERJAUFKYYkhwIoIFPO5qGGowUO
+         20h0AD1e7qvztPC4mNjon1PLFp2ZnobIkAaSjKqXnQFKXyESKcEEHTHRULEEU3k6Q0/V
+         /31g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:reply-to:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=Ow80vPUoJO5Kwx0XryLk9xGvmUheBwvcQFzsdvRaMSQ=;
+        fh=BPruGXeMZoUN46KVmA//2zVA2Ni4lADuubdkzfOb4FA=;
+        b=mfMJDRb8v3XyAXx+kS/bhIUUr3jIq6BdOa7/VPYZHoHCW3YrmAH7Oo1gjWAyqwTZr9
+         2TRv7CvFn8deXyUIYiuCNflio1x1UGXiQwqWLTFVBVEnmhoE/eFiX84kdaGBbc3srqCx
+         jD807plBIdpZkAp6AYPD0icQY178ectyjDO3oE19AQ7/9MMlcntl2RSc0WJ0x0YbZ7KX
+         CYzBVSHYHN+TRd0i4gko0wsnu4KXOPCuc3lCcbdWpkpQfvM3rMXE6bNfMc3JWos8SoP0
+         IOCLTE5QJDlXydgY7pHdANbCWXw40ccTf0km361li5k99HxzjdwEeux62soeHAhIQ+LN
+         TFgQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b="UW/s5ZT4";
+       spf=pass (google.com: domain of john.buter85@gmail.com designates 209.85.220.65 as permitted sender) smtp.mailfrom=john.buter85@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <john.buter85@gmail.com>
+Received: from mail-sor-f65.google.com (mail-sor-f65.google.com. [209.85.220.65])
+        by mx.google.com with SMTPS id jd5-20020a05622a718500b00421e709bf46sor926764qtb.2.2023.12.01.06.33.17
+        for <vanessa.kiehn5@gmail.com>
+        (Google Transport Security);
+        Fri, 01 Dec 2023 06:33:17 -0800 (PST)
+Received-SPF: pass (google.com: domain of john.buter85@gmail.com designates 209.85.220.65 as permitted sender) client-ip=209.85.220.65;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b="UW/s5ZT4";
+       spf=pass (google.com: domain of john.buter85@gmail.com designates 209.85.220.65 as permitted sender) smtp.mailfrom=john.buter85@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1701441197; x=1702045997; dara=google.com;
+        h=to:subject:message-id:date:from:reply-to:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ow80vPUoJO5Kwx0XryLk9xGvmUheBwvcQFzsdvRaMSQ=;
+        b=UW/s5ZT4t4+mez80imX1QiBEPf8259iHeM8a11kQBpibdoP8rci/Wwvg7+bnZTM8bH
+         TWzFBZjcQUcuOnQ80wuc3jB4/Kpw2g4Ibea+bgXq2aCQQ6JXYkzp0LAVvoumrn7Zg72B
+         Chq+XwMCETAa4DpGlqRXIJqJXCk0rFwOw2w7ZESCgfHnd6ju6n5z67/xI3xEOYyv1BGE
+         68kzsvYBEON0aYTOgQd048MfbkBaVL4QPbFejKOBS3Hp6LJAVeWqDGYfEhwjEbQ6L0xo
+         6FoJJY0RGg2Yjb0I9uKk7AgkKyvkr7E/597b+ER0RQU9P6/cRXKALaB5COfV2lKufKXh
+         Bs3A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1701441197; x=1702045997;
+        h=to:subject:message-id:date:from:reply-to:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Ow80vPUoJO5Kwx0XryLk9xGvmUheBwvcQFzsdvRaMSQ=;
+        b=K5GmROm1sqoNk4pPVKv0nKyMbx7MRHv+NyPX+VqfMVyf1klrAhGwZl/rl6bx3OljoK
+         1BVrM3sZzQLiBtfZudH+icLGpyM6lG6qf4k1wWF8JOfvbmhO5ZQkDuM8bUAcb0U8XlDa
+         y/CTZHKtrpvgFW0iwGwCzCw6zvKVVxcJmEyMY8dPTR7HwvHWuD2dF+hcQchpr/YEKTEU
+         qqOdLCiEYrj8db7mPdLSl2Ccv9K8MkiFpPLJ/EPuhPf58dvvnSrCI69GrX2zyeown+uH
+         rFO+0BzwgLiFLzXt6AY/HiyKRvq2wE1BJVNIa8Lz5CwcZ6xqgNSczT5Kx2xAdx7eGz0n
+         Ygng==
+X-Gm-Message-State: AOJu0YzLMT0sLAbobqnVtFaggey9ad+SUFTn8pynL83n1uNwHTaNQFJK
+	9NFdRhOF2dxClOHxjp7U5zEncLBTUuZ7P8ZeyrZ8jSBz1y64CRs=
+X-Google-Smtp-Source: AGHT+IGB+xB8nm7NFYo0oB6yNIHCN3cnjWYiSwGbCNcVKz3cW13b54sZM2Bs45KaBpTRagqPn7k2mGgV95Q1uzndqY0=
+X-Received: by 2002:a05:622a:104a:b0:423:ccec:9c3b with SMTP id
+ f10-20020a05622a104a00b00423ccec9c3bmr17631279qte.1.1701441196515; Fri, 01
+ Dec 2023 06:33:16 -0800 (PST)
+MIME-Version: 1.0
+References: <6568d637.5d0a0220.cf2b6.94f5@mx.google.com>
+In-Reply-To: <6568d637.5d0a0220.cf2b6.94f5@mx.google.com>
+Reply-To: john.buter85@gmail.com
+From: Barrister John Buter <john.buter85@gmail.com>
+Date: Fri, 1 Dec 2023 15:33:04 +0100
+Message-ID: <CALxPO4het6mtb1bakOZvrOxuCZr2xBv+4mk+aEKZ44CzF5ogfQ@mail.gmail.com>
+Subject: Re: To Mr. vanessa kiehn, This is me, Barrister John Buter, i need
+ you to write to me on this email now, john.buter85@gmail.com, write to me now
+ because i am having some unristricted activities with my first email ID,
+ john.buter$106@gmail.com, that is why i contact you through this my second
+ email id, please i need hear from you urgent because the Ecobank Benin is
+ ready to transfer $15million usd to your Bank account today ok. I wait for
+ your urgent response asap. Sincerely Barrister John Buter.
+To: Vanessa Kiehn <vanessa.kiehn5@gmail.com>
+Content-Type: multipart/alternative; boundary="0000000000001fe695060b73a6ab"
+
+--0000000000001fe695060b73a6ab
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Dear. Vanessa Kiehn
+
+I received your email with contents well noted, I am given below Bank
+Account Details within France- Europe as you requested for making the
+Payment immediately Through Bank Transfer. This is our Parnership Bank of
+France.
+
+Username: MICHAEL FEBVIN
+IBAN: FR7616598000014000000842706
+BIC: FPELFR21XXX
+Bank Name: Nickel Bank
+Cit=C3=A9, 87000 Limoges, France
+
+Amount-=C2=A3150 Only
+
+Thanks for your urgent response
+
+I advise you to ensure that you make the payment once you receive this
+email to avoid losing your transfer total amount $15million us dollars
+to another person.
+
+I wait for your confirmation.
+
+Barrister John Buter.
+
+
+
+
+
+On Thu, Nov 30, 2023 at 7:42=E2=80=AFPM Vanessa Kiehn <vanessa.kiehn5@gmail=
+.com>
+wrote:
+
+> Dear Barrister John Buter,
+>
+> Thank you for your prompt response. I am relieved to hear that I can make
+> the payment through bank transfer. However, I can't do international bank
+> transfers through my account - I would prefer to send within Europe
+> instead. Is that possible?
+>
+> I appreciate your assistance in this matter and I look forward to making
+> the payment promptly.
+>
+> Warm regards,
+> Vanessa Kiehn
+>
+
+--0000000000001fe695060b73a6ab
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><br><div>Dear.=C2=A0<span style=3D"color:rgb(34,34,34)">Va=
+nessa Kiehn</span></div><div class=3D"gmail-yj6qo"></div><div><br></div><di=
+v>I received your email with contents well noted, I am given below Bank Acc=
+ount Details within France- Europe as you requested for making the Payment =
+immediately Through Bank Transfer. This is our Parnership Bank of France.</=
+div><div><pre class=3D"gmail-tw-data-text gmail-tw-text-large gmail-tw-ta" =
+id=3D"gmail-tw-target-text" dir=3D"ltr" style=3D"unicode-bidi:isolate;font-=
+size:28px;line-height:36px;border:none;padding:2px 0.14em 2px 0px;font-fami=
+ly:inherit;overflow:hidden;width:270px;white-space:pre-wrap"><span class=3D=
+"gmail-Y2IQFc" lang=3D"en">Username: MICHAEL FEBVIN
+IBAN: FR7616598000014000000842706
+BIC: FPELFR21XXX
+Bank Name: Nickel Bank
+Cit=C3=A9, 87000 Limoges, France</span></pre><pre class=3D"gmail-tw-data-te=
+xt gmail-tw-text-large gmail-tw-ta" id=3D"gmail-tw-target-text" dir=3D"ltr"=
+ style=3D"unicode-bidi:isolate;font-size:28px;line-height:36px;border:none;=
+padding:2px 0.14em 2px 0px;font-family:inherit;overflow:hidden;width:270px;=
+white-space:pre-wrap">Amount-=C2=A3150 Only</pre><pre class=3D"gmail-tw-dat=
+a-text gmail-tw-text-large gmail-tw-ta" id=3D"gmail-tw-target-text" style=
+=3D"unicode-bidi:isolate;font-size:28px;line-height:36px;border:none;paddin=
+g:2px 0.14em 2px 0px;font-family:inherit;overflow:hidden;width:270px;white-=
+space:pre-wrap">Thanks for your urgent response</pre><pre class=3D"gmail-tw=
+-data-text gmail-tw-text-large gmail-tw-ta" id=3D"gmail-tw-target-text" sty=
+le=3D"unicode-bidi:isolate;font-size:28px;line-height:36px;border:none;padd=
+ing:2px 0.14em 2px 0px;font-family:inherit;overflow:hidden;width:270px;whit=
+e-space:pre-wrap">I advise you to ensure that you make the payment once you=
+ receive this email to avoid losing your transfer total amount $15million u=
+s dollars to another person.</pre><pre class=3D"gmail-tw-data-text gmail-tw=
+-text-large gmail-tw-ta" id=3D"gmail-tw-target-text" style=3D"unicode-bidi:=
+isolate;font-size:28px;line-height:36px;border:none;padding:2px 0.14em 2px =
+0px;font-family:inherit;overflow:hidden;width:270px;white-space:pre-wrap">I=
+ wait for your confirmation.</pre><pre class=3D"gmail-tw-data-text gmail-tw=
+-text-large gmail-tw-ta" id=3D"gmail-tw-target-text" style=3D"unicode-bidi:=
+isolate;font-size:28px;line-height:36px;border:none;padding:2px 0.14em 2px =
+0px;font-family:inherit;overflow:hidden;width:270px;white-space:pre-wrap">B=
+arrister John Buter.</pre><pre class=3D"gmail-tw-data-text gmail-tw-text-la=
+rge gmail-tw-ta" id=3D"gmail-tw-target-text" style=3D"unicode-bidi:isolate;=
+font-size:28px;line-height:36px;border:none;padding:2px 0.14em 2px 0px;font=
+-family:inherit;overflow:hidden;width:270px;white-space:pre-wrap"><br></pre=
+><pre class=3D"gmail-tw-data-text gmail-tw-text-large gmail-tw-ta" id=3D"gm=
+ail-tw-target-text" style=3D"unicode-bidi:isolate;font-size:28px;line-heigh=
+t:36px;border:none;padding:2px 0.14em 2px 0px;font-family:inherit;overflow:=
+hidden;width:270px;white-space:pre-wrap"><br></pre></div><div><br></div></d=
+iv><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">On =
+Thu, Nov 30, 2023 at 7:42=E2=80=AFPM Vanessa Kiehn &lt;<a href=3D"mailto:va=
+nessa.kiehn5@gmail.com">vanessa.kiehn5@gmail.com</a>&gt; wrote:<br></div><b=
+lockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-le=
+ft:1px solid rgb(204,204,204);padding-left:1ex">Dear Barrister John Buter,<=
+br>
+<br>
+Thank you for your prompt response. I am relieved to hear that I can make t=
+he payment through bank transfer. However, I can&#39;t do international ban=
+k transfers through my account - I would prefer to send within Europe inste=
+ad. Is that possible?<br>
+<br>
+I appreciate your assistance in this matter and I look forward to making th=
+e payment promptly.<br>
+<br>
+Warm regards,<br>
+Vanessa Kiehn<br>
+</blockquote></div>
+
+--0000000000001fe695060b73a6ab--
