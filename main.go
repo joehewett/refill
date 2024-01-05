@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"path/filepath"
 	"time"
 )
 
@@ -37,7 +38,7 @@ func main() {
 		return
 	}
 
-	dataFiles, err := loadData()
+	files, err := loadData()
 	if err != nil {
 		fmt.Printf("Failed to load data: %s\n", err)
 		return
@@ -51,63 +52,42 @@ func main() {
 	}()
 
 	ch := make(chan string)
-	for _, file := range dataFiles {
-		var fileName string
+	for _, file := range files {
 		if *verbose {
 			fmt.Printf("Filling file %s\n", file)
 		}
-		if *dataDir != "" {
-			fileName = fmt.Sprintf("%s/%s", *dataDir, file)
-		} else {
-			fileName = file
-		}
 
-		go fill(fileName, jsonStr, ch)
+		go fill(file, jsonStr, ch)
 
 		// Don't blast the API too hard
 		time.Sleep(1 * time.Second)
 	}
 
-	for range dataFiles {
+	for range files {
 		if *verbose {
 			fmt.Printf("Waiting for file %s to finish\n", <-ch)
 		}
 		fmt.Printf(<-ch)
 	}
-
 }
 
-func fill(file string, jsonStr string, ch chan string) {
+func fill(file File, jsonStr string, ch chan string) {
 	startTime := time.Now()
-
-	if _, err := os.Stat(file); err != nil {
-		ch <- fmt.Sprintf("Failed to find file %s: %s\n", file, err)
-	}
 
 	if *verbose {
 		fmt.Println("Reading data from file")
 	}
 
-	dataFile, err := os.Open(file)
-	if err != nil {
-		ch <- fmt.Sprintf("Failed to open file %s: %s\n", file, err)
-	}
-
-	defer dataFile.Close()
-
-	bytes, err := io.ReadAll(dataFile)
-	if err != nil {
-		ch <- fmt.Sprintf("Failed to read file %s: %s\n", file, err)
-	}
-
-	data := string(bytes)
-	if *verbose {
-		fmt.Println("Reading JSON from file")
-	}
-
 	if *verbose {
 		fmt.Println("Requesting filled data from LM")
 	}
+
+	data, err := file.Load()
+	if err != nil {
+		ch <- fmt.Sprintf("\nFailed to load data from file %s: %s\n", file, err)
+		return
+	}
+
 	result, err := requestFill(jsonStr, data)
 	if err != nil {
 		ch <- fmt.Sprintf("\nFailed to request fill for file %s: %s\n", file, err)
@@ -153,33 +133,43 @@ func loadJSON() (string, error) {
 	return jsonStr, nil
 }
 
-func loadData() ([]string, error) {
-	var dataFiles []string
+func loadData() ([]File, error) {
+	var files []File
 
 	// If the user provided a directory, read all files from that directory
 	if *dataDir != "" {
 		if *verbose {
 			fmt.Printf("Reading data from directory %s\n", *dataDir)
 		}
-		files, err := os.ReadDir(*dataDir)
+		dirFiles, err := os.ReadDir(*dataDir)
 		if err != nil {
 			return nil, err
 		}
 
-		for _, file := range files {
-			dataFiles = append(dataFiles, file.Name())
+		for _, file := range dirFiles {
+			newFile, err := NewFile(filepath.Join(*dataDir, file.Name()), filepath.Ext(file.Name()))
+			if err != nil {
+				return nil, err
+			}
+
+			files = append(files, newFile)
 		}
 	} else if *dataFile != "" {
-		dataFiles = append(dataFiles, *dataFile)
+		file, err := NewFile(*dataFile, filepath.Ext(*dataFile))
+		if err != nil {
+			return nil, err
+		}
+
+		files = append(files, file)
 	} else {
 		return nil, fmt.Errorf("please provide a directory or file to read data from")
 	}
 
 	if *verbose {
-		for _, file := range dataFiles {
-			fmt.Printf("Data file found: %s\n", file)
+		for _, file := range files {
+			fmt.Printf("Data file found: %s\n", file.Path())
 		}
 	}
 
-	return dataFiles, nil
+	return files, nil
 }
