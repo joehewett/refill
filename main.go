@@ -52,20 +52,36 @@ func main() {
 
 	ch := make(chan string)
 	for _, file := range dataFiles {
-		go fill(file, jsonStr, ch)
+		var fileName string
+		if *verbose {
+			fmt.Printf("Filling file %s\n", file)
+		}
+		if *dataDir != "" {
+			fileName = fmt.Sprintf("%s/%s", *dataDir, file)
+		} else {
+			fileName = file
+		}
+
+		go fill(fileName, jsonStr, ch)
+
+		// Don't blast the API too hard
+		time.Sleep(1 * time.Second)
 	}
 
 	for range dataFiles {
+		if *verbose {
+			fmt.Printf("Waiting for file %s to finish\n", <-ch)
+		}
 		fmt.Printf(<-ch)
 	}
 
 }
 
-func fill(file string, jsonStr string, ch chan string) error {
+func fill(file string, jsonStr string, ch chan string) {
 	startTime := time.Now()
 
 	if _, err := os.Stat(file); err != nil {
-		return fmt.Errorf("file %s does not exist", file)
+		ch <- fmt.Sprintf("Failed to find file %s: %s\n", file, err)
 	}
 
 	if *verbose {
@@ -74,16 +90,14 @@ func fill(file string, jsonStr string, ch chan string) error {
 
 	dataFile, err := os.Open(file)
 	if err != nil {
-		return err
+		ch <- fmt.Sprintf("Failed to open file %s: %s\n", file, err)
 	}
 
 	defer dataFile.Close()
 
 	bytes, err := io.ReadAll(dataFile)
-
 	if err != nil {
-		fmt.Println(err)
-		return err
+		ch <- fmt.Sprintf("Failed to read file %s: %s\n", file, err)
 	}
 
 	data := string(bytes)
@@ -91,18 +105,19 @@ func fill(file string, jsonStr string, ch chan string) error {
 		fmt.Println("Reading JSON from file")
 	}
 
+	if *verbose {
+		fmt.Println("Requesting filled data from LM")
+	}
 	result, err := requestFill(jsonStr, data)
 	if err != nil {
-		fmt.Printf("Failed to request fill for file %s: %s\n", file, err)
-		return nil
+		ch <- fmt.Sprintf("\nFailed to request fill for file %s: %s\n", file, err)
+		return
 	}
 
 	ch <- result
 	if *verbose {
 		fmt.Printf("Time taken for file %s: %s\n", file, time.Since(startTime))
 	}
-
-	return nil
 }
 
 func loadJSON() (string, error) {
@@ -158,6 +173,12 @@ func loadData() ([]string, error) {
 		dataFiles = append(dataFiles, *dataFile)
 	} else {
 		return nil, fmt.Errorf("please provide a directory or file to read data from")
+	}
+
+	if *verbose {
+		for _, file := range dataFiles {
+			fmt.Printf("Data file found: %s\n", file)
+		}
 	}
 
 	return dataFiles, nil
