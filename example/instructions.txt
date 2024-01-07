@@ -1,0 +1,5 @@
+- The value for buy_or_sell should be either BOUGHT or SOLD
+- if you are unsure of a value, leave it blank
+- Possible names for the brokerage are: HARGREAVES LANSDOWN
+- The unit price should be in pence and the total price should be in GBP
+- The brokerage charge is written in GBP
