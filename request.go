@@ -14,11 +14,6 @@ var (
 		where each JSON value is filled in using information provided in the data.
 		If the data does not contain the information required, return an empty string for that value.
 
-		All data should be returned in CAPITAL LETTERS. There should be no spaces or punctuation in any field EXCEPT for names.
-
-		For example: if the field is 08-23-87, return 082387. If the field is 08/23/87, return 082387.
-
-		If you are unsure, or unable to parse a field, simply return an empty string.
 	`
 
 	extraInstructionsTagPrompt = `

@@ -9,7 +9,7 @@ $ go get github.com/joehewett/refill
 ```
 
 ```sh
-$ refill -json example/bank.json -dir example/emls -instructions example/instructions.txt -verbose
+$ refill -json example/bank.json -dir example/emls -instructions example/extra_info.txt -verbose
 ```
 
 ## Flags
