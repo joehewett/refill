@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"path/filepath"
 
-	"github.com/unidoc/unipdf/v3/common/license"
 	"github.com/unidoc/unipdf/v3/extractor"
 	pdfModel "github.com/unidoc/unipdf/v3/model"
 )
@@ -18,6 +18,7 @@ const (
 )
 
 type File interface {
+	Name() string
 	Path() string
 	Type() FileType
 	Load() (string, error)
@@ -28,7 +29,7 @@ func NewFile(path string, extension string) (File, error) {
 		return nil, fmt.Errorf("failed to find file %s: %s", path, err)
 	}
 
-	if extension == "pdf" {
+	if extension == ".pdf" {
 		return &PDF{path: path}, nil
 	} else {
 		return &TXT{path: path}, nil
@@ -43,13 +44,15 @@ func (p *PDF) Path() string {
 	return p.path
 }
 
+func (p *PDF) Name() string {
+	return filepath.Base(p.Path())
+}
+
 func (p *PDF) Type() FileType {
 	return pdf
 }
 
 func (p *PDF) Load() (string, error) {
-	initPDFParser()
-
 	f, err := os.Open(p.Path())
 	if err != nil {
 		return "", err
@@ -67,9 +70,6 @@ func (p *PDF) Load() (string, error) {
 		return "", err
 	}
 
-	fmt.Printf("--------------------\n")
-	fmt.Printf("PDF to text extraction:\n")
-	fmt.Printf("--------------------\n")
 	var text string
 	for i := 0; i < numPages; i++ {
 		pageNum := i + 1
@@ -90,12 +90,9 @@ func (p *PDF) Load() (string, error) {
 		}
 
 		text += pageText
-
-		fmt.Println("------------------------------")
-		fmt.Printf("Page %d:\n", pageNum)
-		fmt.Printf("\"%s\"\n", text)
-		fmt.Println("------------------------------")
 	}
+
+	// fmt.Printf("%s\n----------------------------------------\n", text)
 
 	return text, nil
 }
@@ -106,6 +103,10 @@ type TXT struct {
 
 func (t *TXT) Path() string {
 	return t.path
+}
+
+func (t *TXT) Name() string {
+	return filepath.Base(t.Path())
 }
 
 func (t *TXT) Type() FileType {
@@ -131,13 +132,4 @@ func (t *TXT) Load() (string, error) {
 	}
 
 	return data, nil
-}
-
-func initPDFParser() {
-	// Make sure to load your metered License API key prior to using the library.
-	// If you need a key, you can sign up and create a free one at https://cloud.unidoc.io
-	err := license.SetMeteredKey(os.Getenv(`UNIDOC_LICENSE_API_KEY`))
-	if err != nil {
-		panic(err)
-	}
 }
