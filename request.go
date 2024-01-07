@@ -20,6 +20,11 @@ var (
 
 		If you are unsure, or unable to parse a field, simply return an empty string.
 	`
+
+	extraInstructionsTagPrompt = `
+		[Extra Instructions]
+	`
+
 	jsonTagPrompt = `
 		[JSON Structure]
 	`
@@ -35,33 +40,49 @@ var (
 	model     = openai.GPT4
 )
 
-func requestFill(jsonStructure string, inputData string) (string, error) {
+func requestFill(jsonStructure string, inputData string, instructions string) (string, error) {
 	var messages = []openai.ChatCompletionMessage{
 		{
 			Role:    openai.ChatMessageRoleSystem,
 			Content: systemPrompt,
 		},
+	}
+
+	if instructions != "" {
+		messages = append(messages, openai.ChatCompletionMessage{
+			Role:    openai.ChatMessageRoleSystem,
+			Content: extraInstructionsTagPrompt,
+		})
+
+		messages = append(messages, openai.ChatCompletionMessage{
+			Role:    openai.ChatMessageRoleUser,
+			Content: instructions,
+		})
+	}
+
+	others := []openai.ChatCompletionMessage{
 		{
 			Role:    openai.ChatMessageRoleSystem,
-			Content: fmt.Sprintf(`%s`, jsonTagPrompt),
+			Content: jsonTagPrompt,
 		},
 		{
 			Role:    openai.ChatMessageRoleSystem,
-			Content: fmt.Sprintf(`%s`, jsonStructure),
+			Content: jsonStructure,
 		},
 		{
 			Role:    openai.ChatMessageRoleSystem,
-			Content: fmt.Sprintf(`%s`, dataTagPrompt),
+			Content: dataTagPrompt,
 		},
 		{
 			Role:    openai.ChatMessageRoleSystem,
-			Content: fmt.Sprintf(`%s`, inputData),
+			Content: inputData,
 		},
 		{
 			Role:    openai.ChatMessageRoleSystem,
-			Content: fmt.Sprintf(`%s`, filledJSONTagPrompt),
+			Content: filledJSONTagPrompt,
 		},
 	}
+	messages = append(messages, others...)
 
 	if openAIKey == "" {
 		return "", fmt.Errorf("OPENAI_API_KEY is not set")
