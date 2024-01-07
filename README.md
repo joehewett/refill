@@ -20,8 +20,9 @@ $ refill -json example/bank.json -dir example/emls -instructions example/instruc
 - `-instructions` - Path to text file containing instructions for the LM to follow when rehydrating the schema. Useful for providing additional context to the LM about the data it is processing and the format of the desired output.
 - `-verbose` - Print verbose output
 
-## Parsing PDFs
-If any of the files in the directory or file you pass for processing are `pdf` files, you will need to set the `UNIDOC_LICENSE_API_KEY` environment variable to your [UniDoc](https://unidoc.io/) license key. You can get a free license key [here](https://unidoc.io/).
+## Environment Variables
+- `OPENAI_API_KEY` - All users will need to set their OpenAI key, which can be found here: [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys).
+- `UNIDOC_LICENSE_API_KEY` - If you are parsing PDFs, you'll need to set your [UniDoc](https://unidoc.io/) license key. You can get a free license key [here](https://unidoc.io/).
 
 # Example
 
