@@ -9,8 +9,19 @@ $ go get github.com/joehewett/refill
 ```
 
 ```sh
-$ refill -json structure.json -dir data -verbose
+$ refill -json example/bank.json -dir example/emls -instructions example/instructions.txt -verbose
 ```
+
+## Flags
+- `-help` - Print help message
+- `-json` - Path to JSON schema file containing empty JSON schema to be rehydrated.
+- `-dir` - Path to directory containing files to process.
+- `-file` - Path to an individual file to process.
+- `-instructions` - Path to text file containing instructions for the LM to follow when rehydrating the schema. Useful for providing additional context to the LM about the data it is processing and the format of the desired output.
+- `-verbose` - Print verbose output
+
+## Parsing PDFs
+If any of the files in the directory or file you pass for processing are `pdf` files, you will need to set the `UNIDOC_LICENSE_API_KEY` environment variable to your [UniDoc](https://unidoc.io/) license key. You can get a free license key [here](https://unidoc.io/).
 
 # Example
 
