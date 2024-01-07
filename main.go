@@ -32,7 +32,11 @@ func init() {
 
 func main() {
 	if *help {
-		fmt.Println("Usage: go run main.go (-d <directory>|-f <file>) -j <json file>")
+		fmt.Println("This program will fill a JSON structure with data from a file or directory of files.")
+		fmt.Println("The JSON structure must be provided as a file, and the data must be provided as a file or directory of files.")
+		fmt.Println("Extra instructions must be provided as a text file.")
+		fmt.Println("Usage: go run main.go (-dir <directory>|-file <filename>) -json <json file> -instructions <instructions file>")
+		fmt.Println("Example: go run main.go -dir ./data -json ./json.json -instructions ./instructions.txt")
 		return
 	}
 
@@ -48,9 +52,17 @@ func main() {
 		return
 	}
 
-	files, err := loadData()
+	// Create a slice of [File] to hold all the files we want to read from.
+	files, err := loadFiles()
 	if err != nil {
 		fmt.Printf("Failed to load data: %s\n", err)
+		return
+	}
+
+	// Get any extra instructions from the user to be given to the LM.
+	instructions, err := loadInstructions()
+	if err != nil {
+		fmt.Printf("Failed to load instructions: %s\n", err)
 		return
 	}
 
@@ -60,13 +72,6 @@ func main() {
 			fmt.Printf("Total time taken: %s\n", time.Since(startTime))
 		}
 	}()
-
-	instructions, err := loadInstructions()
-	if err != nil {
-		fmt.Printf("Failed to load instructions: %s\n", err)
-		return
-	}
-
 	ch := make(chan string)
 	for _, file := range files {
 		if *verbose {
@@ -174,7 +179,7 @@ func loadJSON() (string, error) {
 	return jsonStr, nil
 }
 
-func loadData() ([]File, error) {
+func loadFiles() ([]File, error) {
 	var files []File
 
 	// If the user provided a directory, read all files from that directory
